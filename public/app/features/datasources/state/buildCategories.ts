@@ -30,7 +30,7 @@ export function buildCategories(plugins: DataSourcePluginMeta[]): DataSourcePlug
     // Force category for enterprise plugins
     if (plugin.enterprise || enterprisePlugin) {
       plugin.category = 'enterprise';
-      plugin.unlicensed = edition !== 'Open Source' && !hasValidLicense;
+      //plugin.unlicensed = edition !== 'Open Source' && !hasValidLicense;
       plugin.info.links = enterprisePlugin?.info?.links || plugin.info.links;
     }
 

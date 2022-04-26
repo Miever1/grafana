@@ -265,26 +265,26 @@ export function addLegendOptions<T extends OptionsWithLegend>(builder: PanelOpti
   builder
     .addRadio({
       path: 'legend.displayMode',
-      name: 'Legend mode',
+      name: '展示模式',
       description: '',
       defaultValue: LegendDisplayMode.List,
       settings: {
         options: [
-          { value: LegendDisplayMode.List, label: 'List' },
-          { value: LegendDisplayMode.Table, label: 'Table' },
-          { value: LegendDisplayMode.Hidden, label: 'Hidden' },
+          { value: LegendDisplayMode.List, label: '列表模式' },
+          { value: LegendDisplayMode.Table, label: '表格模式' },
+          { value: LegendDisplayMode.Hidden, label: '隐藏模式' },
         ],
       },
     })
     .addRadio({
       path: 'legend.placement',
-      name: 'Legend placement',
+      name: '图列放置位置',
       description: '',
       defaultValue: 'bottom',
       settings: {
         options: [
-          { value: 'bottom', label: 'Bottom' },
-          { value: 'right', label: 'Right' },
+          { value: 'bottom', label: '底部' },
+          { value: 'right', label: '右侧' },
         ],
       },
       showIf: (c) => c.legend.displayMode !== LegendDisplayMode.Hidden,

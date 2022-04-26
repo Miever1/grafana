@@ -18,7 +18,7 @@ export const WelcomeBanner: FC = () => {
     <div className={styles.container}>
       <h1 className={styles.title}>Welcome to Grafana</h1>
       <div className={styles.help}>
-        <h3 className={styles.helpText}>Need help 777777?</h3>
+        <h3 className={styles.helpText}>Need help?</h3>
         <div className={styles.helpLinks}>
           {helpOptions.map((option, index) => {
             return (

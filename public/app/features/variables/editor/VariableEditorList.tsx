@@ -57,22 +57,22 @@ export class VariableEditorList extends PureComponent<Props> {
           {this.props.variables.length === 0 && (
             <div>
               <EmptyListCTA
-                title="There are no variables yet"
+                title="暂无模板变量"
                 buttonIcon="calculator-alt"
-                buttonTitle="Add variable"
-                infoBox={{
-                  __html: ` <p>
-                    Variables enable more interactive and dynamic dashboards. Instead of hard-coding things like server
-                    or sensor names in your metric queries you can use variables in their place. Variables are shown as
-                    dropdown select boxes at the top of the dashboard. These dropdowns make it easy to change the data
-                    being displayed in your dashboard. Check out the
-                    <a class="external-link" href="http://docs.grafana.org/reference/templating/" target="_blank">
-                      Templating documentation
-                    </a>
-                    for more information.
-                  </p>`,
-                }}
-                infoBoxTitle="What do variables do?"
+                buttonTitle="新增变量"
+                // infoBox={{
+                //   __html: ` <p>
+                //     Variables enable more interactive and dynamic dashboards. Instead of hard-coding things like server
+                //     or sensor names in your metric queries you can use variables in their place. Variables are shown as
+                //     dropdown select boxes at the top of the dashboard. These dropdowns make it easy to change the data
+                //     being displayed in your dashboard. Check out the
+                //     <a class="external-link" href="http://docs.grafana.org/reference/templating/" target="_blank">
+                //       Templating documentation
+                //     </a>
+                //     for more information.
+                //   </p>`,
+                // }}
+                // infoBoxTitle="What do variables do?"
                 onClick={this.props.onAddClick}
               />
             </div>
@@ -86,8 +86,8 @@ export class VariableEditorList extends PureComponent<Props> {
               >
                 <thead>
                   <tr>
-                    <th>Variable</th>
-                    <th>Definition</th>
+                    <th>模板变量</th>
+                    <th>定义</th>
                     <th colSpan={6} />
                   </tr>
                 </thead>

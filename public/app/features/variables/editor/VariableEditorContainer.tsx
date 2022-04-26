@@ -81,7 +81,7 @@ class VariableEditorContainerUnconnected extends PureComponent<Props> {
               onClick={this.onChangeToListMode}
               aria-label={selectors.pages.Dashboard.Settings.Variables.Edit.General.headerLink}
             >
-              Variables
+              模板变量
             </a>
             {this.props.idInEditor && (
               <span>
@@ -89,7 +89,7 @@ class VariableEditorContainerUnconnected extends PureComponent<Props> {
                   name="angle-right"
                   aria-label={selectors.pages.Dashboard.Settings.Variables.Edit.General.modeLabelEdit}
                 />
-                Edit
+                编辑
               </span>
             )}
           </h3>

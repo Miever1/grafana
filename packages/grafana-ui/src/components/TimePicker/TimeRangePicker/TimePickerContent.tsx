@@ -276,7 +276,7 @@ const FullScreenForm: React.FC<FormProps> = (props) => {
             options={props.historyOptions || []}
             onSelect={props.onChange}
             value={props.value}
-            placeholderEmpty={<EmptyRecentList />}
+            placeholderEmpty={null}
             timeZone={props.timeZone}
           />
         </div>

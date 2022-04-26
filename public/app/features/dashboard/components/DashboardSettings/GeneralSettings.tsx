@@ -5,7 +5,7 @@ import { selectors } from '@grafana/e2e-selectors';
 import { FolderPicker } from 'app/core/components/Select/FolderPicker';
 import { DashboardModel } from '../../state/DashboardModel';
 import { DeleteDashboardButton } from '../DeleteDashboard/DeleteDashboardButton';
-import { TimePickerSettings } from './TimePickerSettings';
+// import { TimePickerSettings } from './TimePickerSettings';
 
 interface Props {
   dashboard: DashboardModel;
@@ -35,23 +35,23 @@ export const GeneralSettings: React.FC<Props> = ({ dashboard }) => {
     setRenderCounter(renderCounter + 1);
   };
 
-  const onRefreshIntervalChange = (intervals: string[]) => {
-    dashboard.timepicker.refresh_intervals = intervals.filter((i) => i.trim() !== '');
-  };
+  // const onRefreshIntervalChange = (intervals: string[]) => {
+  //   dashboard.timepicker.refresh_intervals = intervals.filter((i) => i.trim() !== '');
+  // };
 
-  const onNowDelayChange = (nowDelay: string) => {
-    dashboard.timepicker.nowDelay = nowDelay;
-  };
+  // const onNowDelayChange = (nowDelay: string) => {
+  //   dashboard.timepicker.nowDelay = nowDelay;
+  // };
 
-  const onHideTimePickerChange = (hide: boolean) => {
-    dashboard.timepicker.hidden = hide;
-    setRenderCounter(renderCounter + 1);
-  };
+  // const onHideTimePickerChange = (hide: boolean) => {
+  //   dashboard.timepicker.hidden = hide;
+  //   setRenderCounter(renderCounter + 1);
+  // };
 
-  const onTimeZoneChange = (timeZone: TimeZone) => {
-    dashboard.timezone = timeZone;
-    setRenderCounter(renderCounter + 1);
-  };
+  // const onTimeZoneChange = (timeZone: TimeZone) => {
+  //   dashboard.timezone = timeZone;
+  //   setRenderCounter(renderCounter + 1);
+  // };
 
   const onTagsChange = (tags: string[]) => {
     dashboard.tags = tags;
@@ -64,26 +64,26 @@ export const GeneralSettings: React.FC<Props> = ({ dashboard }) => {
   };
 
   const editableOptions = [
-    { label: 'Editable', value: true },
-    { label: 'Read-only', value: false },
+    { label: '可编辑', value: true },
+    { label: '只读', value: false },
   ];
 
   return (
     <div style={{ maxWidth: '600px' }}>
       <h3 className="dashboard-settings__header" aria-label={selectors.pages.Dashboard.Settings.General.title}>
-        General
+        基础设置
       </h3>
       <div className="gf-form-group">
-        <Field label="Name">
+        <Field label="名称">
           <Input name="title" onBlur={onBlur} defaultValue={dashboard.title} />
         </Field>
-        <Field label="Description">
+        <Field label="备注">
           <Input name="description" onBlur={onBlur} defaultValue={dashboard.description} />
         </Field>
-        <Field label="Tags">
+        <Field label="标记">
           <TagsInput tags={dashboard.tags} onChange={onTagsChange} />
         </Field>
-        <Field label="Folder">
+        <Field label="文件夹">
           <FolderPicker
             initialTitle={dashboard.meta.folderTitle}
             initialFolderId={dashboard.meta.folderId}
@@ -93,15 +93,12 @@ export const GeneralSettings: React.FC<Props> = ({ dashboard }) => {
           />
         </Field>
 
-        <Field
-          label="Editable"
-          description="Set to read-only to disable all editing. Reload the dashboard for changes to take effect"
-        >
+        <Field label="可编辑" description="设置为只读以禁用所有编辑,重新加载仪表板以使更改生效">
           <RadioButtonGroup value={dashboard.editable} options={editableOptions} onChange={onEditableChange} />
         </Field>
       </div>
 
-      <TimePickerSettings
+      {/* <TimePickerSettings
         onTimeZoneChange={onTimeZoneChange}
         onRefreshIntervalChange={onRefreshIntervalChange}
         onNowDelayChange={onNowDelayChange}
@@ -110,7 +107,7 @@ export const GeneralSettings: React.FC<Props> = ({ dashboard }) => {
         timePickerHidden={dashboard.timepicker.hidden}
         nowDelay={dashboard.timepicker.nowDelay}
         timezone={dashboard.timezone}
-      />
+      /> */}
 
       <CollapsableSection label="Panel options" isOpen={true}>
         <Field

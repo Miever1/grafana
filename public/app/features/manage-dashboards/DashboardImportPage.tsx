@@ -78,10 +78,10 @@ class DashboardImportUnConnected extends PureComponent<Props> {
       <>
         <div className={styles.option}>
           <FileUpload accept="application/json" onFileUpload={this.onFileUpload}>
-            Upload JSON file
+            JSON文件上传
           </FileUpload>
         </div>
-        <div className={styles.option}>
+        {/* <div className={styles.option}>
           <Legend>Import via grafana.com</Legend>
           <Form onSubmit={this.getGcomDashboard} defaultValues={{ gcomDashboard: '' }}>
             {({ register, errors }) => (
@@ -99,9 +99,9 @@ class DashboardImportUnConnected extends PureComponent<Props> {
               </Field>
             )}
           </Form>
-        </div>
+        </div> */}
         <div className={styles.option}>
-          <Legend>Import via panel json</Legend>
+          <Legend>通过json面板导入</Legend>
           <Form onSubmit={this.getDashboardFromJson} defaultValues={{ dashboardJson: '' }}>
             {({ register, errors }) => (
               <>
@@ -115,7 +115,7 @@ class DashboardImportUnConnected extends PureComponent<Props> {
                     rows={10}
                   />
                 </Field>
-                <Button type="submit">Load</Button>
+                <Button type="submit">加载</Button>
               </>
             )}
           </Form>

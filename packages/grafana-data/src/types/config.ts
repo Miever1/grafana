@@ -28,7 +28,7 @@ export interface BuildInfo {
  * @internal
  */
 export enum GrafanaEdition {
-  OpenSource = 'Open Source',
+  OpenSource = '',
   Pro = 'Pro',
   Enterprise = 'Enterprise',
 }

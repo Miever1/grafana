@@ -37,12 +37,12 @@ export const SelectionOptionsEditor: FunctionComponent<SelectionOptionsEditorPro
   );
   return (
     <VerticalGroup spacing="none">
-      <VariableSectionHeader name="Selection Options" />
+      <VariableSectionHeader name="选择方式" />
       <InlineFieldRow>
         <VariableSwitchField
           value={props.variable.multi}
-          name="Multi-value"
-          tooltip="Enables multiple values to be selected at the same time"
+          name="多选"
+          tooltip="允许同时选择多个值"
           onChange={onMultiChanged}
           ariaLabel={selectors.pages.Dashboard.Settings.Variables.Edit.General.selectionOptionsMultiSwitch}
         />
@@ -50,8 +50,8 @@ export const SelectionOptionsEditor: FunctionComponent<SelectionOptionsEditorPro
       <InlineFieldRow>
         <VariableSwitchField
           value={props.variable.includeAll}
-          name="Include All option"
-          tooltip="Enables an option to include all variables"
+          name="全选"
+          tooltip="启用包含所有变量的选项"
           onChange={onIncludeAllChanged}
           ariaLabel={selectors.pages.Dashboard.Settings.Variables.Edit.General.selectionOptionsIncludeAllSwitch}
         />

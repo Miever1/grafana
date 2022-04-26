@@ -130,20 +130,20 @@ func (hs *HTTPServer) getNavTree(c *models.ReqContext, hasEditPerm bool) ([]*dto
 
 	if hasEditPerm {
 		children := []*dtos.NavLink{
-			{Text: "Dashboard", Icon: "apps", Url: setting.AppSubUrl + "/dashboard/new"},
+			{Text: "新建大盘", Icon: "apps", Url: setting.AppSubUrl + "/dashboard/new"},
 		}
 		if c.OrgRole == models.ROLE_ADMIN || c.OrgRole == models.ROLE_EDITOR {
 			children = append(children, &dtos.NavLink{
-				Text: "Folder", SubTitle: "Create a new folder to organize your dashboards", Id: "folder",
+				Text: "新建文件夹", SubTitle: "Create a new folder to organize your dashboards", Id: "folder",
 				Icon: "folder-plus", Url: setting.AppSubUrl + "/dashboards/folder/new",
 			})
 		}
 		children = append(children, &dtos.NavLink{
-			Text: "Import", SubTitle: "Import dashboard from file or Grafana.com", Id: "import", Icon: "import",
+			Text: "导入大盘", SubTitle: "Import dashboard from file or Grafana.com", Id: "import", Icon: "import",
 			Url: setting.AppSubUrl + "/dashboard/import",
 		})
 		navTree = append(navTree, &dtos.NavLink{
-			Text:       "Create",
+			Text:       "新建",
 			Id:         "create",
 			Icon:       "plus",
 			Url:        setting.AppSubUrl + "/dashboard/new",
@@ -153,25 +153,25 @@ func (hs *HTTPServer) getNavTree(c *models.ReqContext, hasEditPerm bool) ([]*dto
 	}
 
 	dashboardChildNavs := []*dtos.NavLink{
-		{Text: "Home", Id: "home", Url: setting.AppSubUrl + "/", Icon: "home-alt", HideFromTabs: true},
-		{Text: "Divider", Divider: true, Id: "divider", HideFromTabs: true},
-		{Text: "Manage", Id: "manage-dashboards", Url: setting.AppSubUrl + "/dashboards", Icon: "sitemap"},
-		{Text: "Playlists", Id: "playlists", Url: setting.AppSubUrl + "/playlists", Icon: "presentation-play"},
+		// {Text: "Home", Id: "home", Url: setting.AppSubUrl + "/", Icon: "home-alt", HideFromTabs: true},
+		// {Text: "Divider", Divider: true, Id: "divider", HideFromTabs: true},
+		{Text: "大盘列表", Id: "manage-dashboards", Url: setting.AppSubUrl + "/dashboards", Icon: "sitemap"},
+		// {Text: "Playlists", Id: "playlists", Url: setting.AppSubUrl + "/playlists", Icon: "presentation-play"},
 	}
 
 	if c.IsSignedIn {
-		dashboardChildNavs = append(dashboardChildNavs, &dtos.NavLink{
-			Text: "Snapshots",
-			Id:   "snapshots",
-			Url:  setting.AppSubUrl + "/dashboard/snapshots",
-			Icon: "camera",
-		})
+		// dashboardChildNavs = append(dashboardChildNavs, &dtos.NavLink{
+		// 	Text: "Snapshots",
+		// 	Id:   "snapshots",
+		// 	Url:  setting.AppSubUrl + "/dashboard/snapshots",
+		// 	Icon: "camera",
+		// })
 	}
 
 	navTree = append(navTree, &dtos.NavLink{
-		Text:       "Dashboards",
+		Text:       "监控大盘",
 		Id:         "dashboards",
-		SubTitle:   "Manage dashboards & folders",
+		SubTitle:   "监控大盘及文件夹管理",
 		Icon:       "apps",
 		Url:        setting.AppSubUrl + "/",
 		SortWeight: dtos.WeightDashboard,

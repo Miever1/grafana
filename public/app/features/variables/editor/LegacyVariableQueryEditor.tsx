@@ -29,7 +29,7 @@ export const LegacyVariableQueryEditor: FC<VariableQueryProps> = ({ onChange, qu
   return (
     <div className={styles.container}>
       <VariableTextAreaField
-        name="Query"
+        name="变量查询"
         value={value}
         placeholder="metric name or tags query"
         width={100}

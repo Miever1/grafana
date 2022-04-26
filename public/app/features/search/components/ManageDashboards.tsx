@@ -80,9 +80,9 @@ export const ManageDashboards: FC<Props & ConnectProps & DispatchProps> = memo((
   if (noFolders && !hasFilters) {
     return (
       <EmptyListCTA
-        title="This folder doesn't have any dashboards yet"
+        title="此文件夹当前无任何大盘"
         buttonIcon="plus"
-        buttonTitle="Create Dashboard"
+        buttonTitle="新建大盘"
         buttonLink={`dashboard/new?folderId=${folderId}`}
         proTip="Add/move dashboards to your folder at ->"
         proTipLink="dashboards"
@@ -101,7 +101,7 @@ export const ManageDashboards: FC<Props & ConnectProps & DispatchProps> = memo((
             inputClassName="gf-form-input width-20"
             value={query.query}
             onChange={onQueryChange}
-            placeholder={'Search dashboards by name'}
+            placeholder={'请输入大盘名称模糊搜索'}
           />
           <DashboardActions isEditor={isEditor} canEdit={hasEditPermissionInFolders || canSave} folderId={folderId} />
         </HorizontalGroup>

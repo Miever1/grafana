@@ -32,9 +32,9 @@ function getTabs(props: Props) {
 
   const tabs: ShareModalTabModel[] = [{ label: 'Link', value: 'link', component: ShareLink }];
 
-  if (contextSrv.isSignedIn) {
-    tabs.push({ label: 'Snapshot', value: 'snapshot', component: ShareSnapshot });
-  }
+  // if (contextSrv.isSignedIn) {
+  //   tabs.push({ label: 'Snapshot', value: 'snapshot', component: ShareSnapshot });
+  // }
 
   if (panel) {
     tabs.push({ label: 'Embed', value: 'embed', component: ShareEmbed });

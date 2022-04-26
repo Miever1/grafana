@@ -64,16 +64,16 @@ export const PanelOptionsTab: FC<Props> = ({
   // First common panel settings Title, description
   elements.push(
     <OptionsGroup title="Settings" id="Panel settings" key="Panel settings">
-      <Field label="Panel title">
+      <Field label="图表名称">
         <Input defaultValue={panel.title} onBlur={(e) => onPanelConfigChange('title', e.currentTarget.value)} />
       </Field>
-      <Field label="Description" description="Panel description supports markdown and links.">
+      <Field label="备注" description="Panel description supports markdown and links.">
         <TextArea
           defaultValue={panel.description}
           onBlur={(e) => onPanelConfigChange('description', e.currentTarget.value)}
         />
       </Field>
-      <Field label="Transparent" description="Display panel without a background.">
+      <Field label="透明背景" description="Display panel without a background.">
         <Switch
           value={panel.transparent}
           onChange={(e) => onPanelConfigChange('transparent', e.currentTarget.checked)}
@@ -83,7 +83,7 @@ export const PanelOptionsTab: FC<Props> = ({
   );
 
   elements.push(
-    <OptionsGroup title="Visualization" id="Panel type" key="Panel type" defaultToClosed onToggle={focusVisPickerInput}>
+    <OptionsGroup title="图表样式" id="Panel type" key="Panel type" defaultToClosed onToggle={focusVisPickerInput}>
       {(toggleExpand) => <VisualizationTab panel={panel} ref={visTabInputRef} onToggleOptionGroup={toggleExpand} />}
     </OptionsGroup>
   );

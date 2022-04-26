@@ -27,22 +27,22 @@ export const getPanelEditorTabs = memoizeOne((location: LocationState, plugin?: 
       active: false,
     });
 
-    tabs.push({
-      id: PanelEditorTabId.Transform,
-      text: 'Transform',
-      icon: 'process',
-      active: false,
-    });
+    // tabs.push({
+    //   id: PanelEditorTabId.Transform,
+    //   text: 'Transform',
+    //   icon: 'process',
+    //   active: false,
+    // });
   }
 
-  if (getConfig().alertingEnabled && plugin.meta.id === 'graph') {
-    tabs.push({
-      id: PanelEditorTabId.Alert,
-      text: 'Alert',
-      icon: 'bell',
-      active: false,
-    });
-  }
+  // if (getConfig().alertingEnabled && plugin.meta.id === 'graph') {
+  //   tabs.push({
+  //     id: PanelEditorTabId.Alert,
+  //     text: 'Alert',
+  //     icon: 'bell',
+  //     active: false,
+  //   });
+  // }
 
   const activeTab = tabs.find((item) => item.id === (location.query.tab || defaultTab)) ?? tabs[0];
   activeTab.active = true;

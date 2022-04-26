@@ -185,11 +185,11 @@ export class QueryVariableEditorUnConnected extends PureComponent<Props, State> 
   render() {
     return (
       <VerticalGroup spacing="xs">
-        <VariableSectionHeader name="Query Options" />
+        <VariableSectionHeader name="查询选项" />
         <VerticalGroup spacing="lg">
           <VerticalGroup spacing="none">
             <InlineFieldRow>
-              <InlineField label="Data source" labelWidth={20}>
+              <InlineField label="数据源" labelWidth={20}>
                 <DataSourcePicker
                   current={this.props.variable.datasource}
                   onChange={this.onDataSourceChange}
@@ -208,7 +208,7 @@ export class QueryVariableEditorUnConnected extends PureComponent<Props, State> 
             </div>
             <VariableTextField
               value={this.state.regex ?? this.props.variable.regex}
-              name="Regex"
+              name="正则表达式"
               placeholder="/.*-(?<text>.*)-(?<value>.*)-.*/"
               onChange={this.onRegExChange}
               onBlur={this.onRegExBlur}
