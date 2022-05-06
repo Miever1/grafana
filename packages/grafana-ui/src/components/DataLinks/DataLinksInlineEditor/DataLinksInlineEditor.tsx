@@ -83,7 +83,7 @@ export const DataLinksInlineEditor: React.FC<DataLinksInlineEditorProps> = ({ li
 
       {isEditing && editIndex !== null && (
         <Modal
-          title="Edit link"
+          title="编辑链接"
           isOpen={true}
           onDismiss={() => {
             onDataLinkCancel(editIndex);

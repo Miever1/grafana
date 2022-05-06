@@ -5,7 +5,7 @@ export function buildNavModel(folder: FolderDTO): NavModelItem {
   const model = {
     icon: 'folder',
     id: 'manage-folder',
-    subTitle: 'Manage folder dashboards & permissions',
+    subTitle: '管理文件夹大盘列表和权限',
     url: '',
     text: folder.title,
     breadcrumbs: [{ title: 'Dashboards', url: 'dashboards' }],

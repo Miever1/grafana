@@ -1,13 +1,14 @@
-import React, { FC, useCallback, useMemo, useRef } from 'react';
+import React, { FC, useMemo, useRef } from 'react';
 import { DashboardModel, PanelModel } from '../../state';
 import { PanelData, PanelPlugin } from '@grafana/data';
-import { Counter, DataLinksInlineEditor, Field, Input, RadioButtonGroup, Select, Switch, TextArea } from '@grafana/ui';
+import { Counter, DataLinksInlineEditor, Field, Input, Switch, TextArea } from '@grafana/ui';
+//import { Counter, DataLinksInlineEditor, Field, Input, RadioButtonGroup, Select, Switch, TextArea } from '@grafana/ui';
 import { getPanelLinksVariableSuggestions } from '../../../panel/panellinks/link_srv';
 import { PanelOptionsEditor } from './PanelOptionsEditor';
 import { AngularPanelOptions } from './AngularPanelOptions';
 import { VisualizationTab } from './VisualizationTab';
 import { OptionsGroup } from './OptionsGroup';
-import { RepeatRowSelect } from '../RepeatRowSelect/RepeatRowSelect';
+// import { RepeatRowSelect } from '../RepeatRowSelect/RepeatRowSelect';
 import config from 'app/core/config';
 import { LibraryPanelInformation } from 'app/features/library-panels/components/LibraryPanelInfo/LibraryPanelInfo';
 import { isLibraryPanel } from '../../state/PanelModel';
@@ -32,18 +33,18 @@ export const PanelOptionsTab: FC<Props> = ({
 }) => {
   const visTabInputRef = useRef<HTMLInputElement>(null);
   const linkVariablesSuggestions = useMemo(() => getPanelLinksVariableSuggestions(), []);
-  const onRepeatRowSelectChange = useCallback((value: string | null) => onPanelConfigChange('repeat', value), [
-    onPanelConfigChange,
-  ]);
+  // const onRepeatRowSelectChange = useCallback((value: string | null) => onPanelConfigChange('repeat', value), [
+  //   onPanelConfigChange,
+  // ]);
   const elements: JSX.Element[] = [];
   const panelLinksCount = panel && panel.links ? panel.links.length : 0;
 
-  const directionOptions = [
-    { label: 'Horizontal', value: 'h' },
-    { label: 'Vertical', value: 'v' },
-  ];
+  // const directionOptions = [
+  //   { label: 'Horizontal', value: 'h' },
+  //   { label: 'Vertical', value: 'v' },
+  // ];
 
-  const maxPerRowOptions = [2, 3, 4, 6, 8, 12].map((value) => ({ label: value.toString(), value }));
+  // const maxPerRowOptions = [2, 3, 4, 6, 8, 12].map((value) => ({ label: value.toString(), value }));
 
   const focusVisPickerInput = (isExpanded: boolean) => {
     if (isExpanded && visTabInputRef.current) {
@@ -63,17 +64,17 @@ export const PanelOptionsTab: FC<Props> = ({
 
   // First common panel settings Title, description
   elements.push(
-    <OptionsGroup title="Settings" id="Panel settings" key="Panel settings">
+    <OptionsGroup title="基础信息" id="Panel settings" key="Panel settings">
       <Field label="图表名称">
         <Input defaultValue={panel.title} onBlur={(e) => onPanelConfigChange('title', e.currentTarget.value)} />
       </Field>
-      <Field label="备注" description="Panel description supports markdown and links.">
+      <Field label="备注" description="图表描述信息">
         <TextArea
           defaultValue={panel.description}
           onBlur={(e) => onPanelConfigChange('description', e.currentTarget.value)}
         />
       </Field>
-      <Field label="透明背景" description="Display panel without a background.">
+      <Field label="透明背景" description="图表显示没有背景">
         <Switch
           value={panel.transparent}
           onChange={(e) => onPanelConfigChange('transparent', e.currentTarget.checked)}
@@ -120,7 +121,7 @@ export const PanelOptionsTab: FC<Props> = ({
   elements.push(
     <OptionsGroup
       renderTitle={(isExpanded) => (
-        <>Links {!isExpanded && panelLinksCount > 0 && <Counter value={panelLinksCount} />}</>
+        <>数据跳转链接 {!isExpanded && panelLinksCount > 0 && <Counter value={panelLinksCount} />}</>
       )}
       id="panel links"
       key="panel links"
@@ -135,37 +136,37 @@ export const PanelOptionsTab: FC<Props> = ({
     </OptionsGroup>
   );
 
-  elements.push(
-    <OptionsGroup title="Repeat options" id="panel repeats" key="panel repeats" defaultToClosed>
-      <Field
-        label="Repeat by variable"
-        description="Repeat this panel for each value in the selected variable.
-          This is not visible while in edit mode. You need to go back to dashboard and then update the variable or
-          reload the dashboard."
-      >
-        <RepeatRowSelect repeat={panel.repeat} onChange={onRepeatRowSelectChange} />
-      </Field>
-      {panel.repeat && (
-        <Field label="Repeat direction">
-          <RadioButtonGroup
-            options={directionOptions}
-            value={panel.repeatDirection || 'h'}
-            onChange={(value) => onPanelConfigChange('repeatDirection', value)}
-          />
-        </Field>
-      )}
+  // elements.push(
+  //   <OptionsGroup title="Repeat options" id="panel repeats" key="panel repeats" defaultToClosed>
+  //     <Field
+  //       label="Repeat by variable"
+  //       description="Repeat this panel for each value in the selected variable.
+  //         This is not visible while in edit mode. You need to go back to dashboard and then update the variable or
+  //         reload the dashboard."
+  //     >
+  //       <RepeatRowSelect repeat={panel.repeat} onChange={onRepeatRowSelectChange} />
+  //     </Field>
+  //     {panel.repeat && (
+  //       <Field label="Repeat direction">
+  //         <RadioButtonGroup
+  //           options={directionOptions}
+  //           value={panel.repeatDirection || 'h'}
+  //           onChange={(value) => onPanelConfigChange('repeatDirection', value)}
+  //         />
+  //       </Field>
+  //     )}
 
-      {panel.repeat && panel.repeatDirection === 'h' && (
-        <Field label="Max per row">
-          <Select
-            options={maxPerRowOptions}
-            value={panel.maxPerRow}
-            onChange={(value) => onPanelConfigChange('maxPerRow', value.value)}
-          />
-        </Field>
-      )}
-    </OptionsGroup>
-  );
+  //     {panel.repeat && panel.repeatDirection === 'h' && (
+  //       <Field label="Max per row">
+  //         <Select
+  //           options={maxPerRowOptions}
+  //           value={panel.maxPerRow}
+  //           onChange={(value) => onPanelConfigChange('maxPerRow', value.value)}
+  //         />
+  //       </Field>
+  //     )}
+  //   </OptionsGroup>
+  // );
 
   if (config.featureToggles.panelLibrary) {
     elements.push(<PanelLibraryOptionsGroup panel={panel} dashboard={dashboard} key="Panel Library" />);

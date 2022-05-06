@@ -1,6 +1,6 @@
 {
   "type": "panel",
-  "name": "Pie chart v2",
+  "name": "饼图",
   "id": "piechart",
   "state": "beta",
 

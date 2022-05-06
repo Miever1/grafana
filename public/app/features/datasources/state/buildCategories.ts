@@ -23,7 +23,7 @@ export function buildCategories(plugins: DataSourcePluginMeta[]): DataSourcePlug
     categoryIndex[category.id] = category;
   }
 
-  const { edition, hasValidLicense } = config.licenseInfo;
+  // const { edition, hasValidLicense } = config.licenseInfo;
 
   for (const plugin of plugins) {
     const enterprisePlugin = enterprisePlugins.find((item) => item.id === plugin.id);

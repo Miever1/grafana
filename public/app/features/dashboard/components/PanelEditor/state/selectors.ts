@@ -2,7 +2,7 @@ import memoizeOne from 'memoize-one';
 import { LocationState } from 'app/types';
 import { PanelPlugin } from '@grafana/data';
 import { PanelEditorTab, PanelEditorTabId } from '../types';
-import { getConfig } from 'app/core/config';
+// import { getConfig } from 'app/core/config';
 
 export const getPanelEditorTabs = memoizeOne((location: LocationState, plugin?: PanelPlugin) => {
   const tabs: PanelEditorTab[] = [];

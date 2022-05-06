@@ -17,15 +17,15 @@ export const LinkSettingsHeader: React.FC<LinkSettingsHeaderProps> = ({ onNavCli
       <HorizontalGroup align="center" justify="space-between">
         <h3>
           <span onClick={onNavClick} className={isEditing ? 'pointer' : ''}>
-            Dashboard Links
+            大盘链接
           </span>
           {isEditing && (
             <span>
-              <Icon name="angle-right" /> {mode === 'new' ? 'New' : 'Edit'}
+              <Icon name="angle-right" /> {mode === 'new' ? '新建' : '编辑'}
             </span>
           )}
         </h3>
-        {!isEditing && hasLinks ? <Button onClick={onBtnClick}>New</Button> : null}
+        {!isEditing && hasLinks ? <Button onClick={onBtnClick}>新建</Button> : null}
       </HorizontalGroup>
     </div>
   );

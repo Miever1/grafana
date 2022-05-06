@@ -66,7 +66,7 @@ export class DashboardSettings extends PureComponent<Props> {
       });
 
       pages.push({
-        title: 'Links',
+        title: '链接',
         id: 'links',
         icon: 'link',
         render: () => <LinksSettings dashboard={dashboard} />,

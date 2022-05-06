@@ -371,73 +371,73 @@ function calculateFirst(field: Field, ignoreNulls: boolean, nullAsZero: boolean)
   return { first: field.values.get(0) };
 }
 
-function calculateFirstNotNull(field: Field, ignoreNulls: boolean, nullAsZero: boolean): FieldCalcs {
-  const data = field.values;
-  for (let idx = 0; idx < data.length; idx++) {
-    const v = data.get(idx);
-    if (v != null && v !== undefined) {
-      return { firstNotNull: v };
-    }
-  }
-  return { firstNotNull: null };
-}
+// function calculateFirstNotNull(field: Field, ignoreNulls: boolean, nullAsZero: boolean): FieldCalcs {
+//   const data = field.values;
+//   for (let idx = 0; idx < data.length; idx++) {
+//     const v = data.get(idx);
+//     if (v != null && v !== undefined) {
+//       return { firstNotNull: v };
+//     }
+//   }
+//   return { firstNotNull: null };
+// }
 
 function calculateLast(field: Field, ignoreNulls: boolean, nullAsZero: boolean): FieldCalcs {
   const data = field.values;
   return { last: data.get(data.length - 1) };
 }
 
-function calculateLastNotNull(field: Field, ignoreNulls: boolean, nullAsZero: boolean): FieldCalcs {
-  const data = field.values;
-  let idx = data.length - 1;
-  while (idx >= 0) {
-    const v = data.get(idx--);
-    if (v != null && v !== undefined) {
-      return { lastNotNull: v };
-    }
-  }
-  return { lastNotNull: null };
-}
+// function calculateLastNotNull(field: Field, ignoreNulls: boolean, nullAsZero: boolean): FieldCalcs {
+//   const data = field.values;
+//   let idx = data.length - 1;
+//   while (idx >= 0) {
+//     const v = data.get(idx--);
+//     if (v != null && v !== undefined) {
+//       return { lastNotNull: v };
+//     }
+//   }
+//   return { lastNotNull: null };
+// }
 
-function calculateChangeCount(field: Field, ignoreNulls: boolean, nullAsZero: boolean): FieldCalcs {
-  const data = field.values;
-  let count = 0;
-  let first = true;
-  let last: any = null;
-  for (let i = 0; i < data.length; i++) {
-    let currentValue = data.get(i);
-    if (currentValue === null) {
-      if (ignoreNulls) {
-        continue;
-      }
-      if (nullAsZero) {
-        currentValue = 0;
-      }
-    }
-    if (!first && last !== currentValue) {
-      count++;
-    }
-    first = false;
-    last = currentValue;
-  }
+// function calculateChangeCount(field: Field, ignoreNulls: boolean, nullAsZero: boolean): FieldCalcs {
+//   const data = field.values;
+//   let count = 0;
+//   let first = true;
+//   let last: any = null;
+//   for (let i = 0; i < data.length; i++) {
+//     let currentValue = data.get(i);
+//     if (currentValue === null) {
+//       if (ignoreNulls) {
+//         continue;
+//       }
+//       if (nullAsZero) {
+//         currentValue = 0;
+//       }
+//     }
+//     if (!first && last !== currentValue) {
+//       count++;
+//     }
+//     first = false;
+//     last = currentValue;
+//   }
 
-  return { changeCount: count };
-}
+//   return { changeCount: count };
+// }
 
-function calculateDistinctCount(field: Field, ignoreNulls: boolean, nullAsZero: boolean): FieldCalcs {
-  const data = field.values;
-  const distinct = new Set<any>();
-  for (let i = 0; i < data.length; i++) {
-    let currentValue = data.get(i);
-    if (currentValue === null) {
-      if (ignoreNulls) {
-        continue;
-      }
-      if (nullAsZero) {
-        currentValue = 0;
-      }
-    }
-    distinct.add(currentValue);
-  }
-  return { distinctCount: distinct.size };
-}
+// function calculateDistinctCount(field: Field, ignoreNulls: boolean, nullAsZero: boolean): FieldCalcs {
+//   const data = field.values;
+//   const distinct = new Set<any>();
+//   for (let i = 0; i < data.length; i++) {
+//     let currentValue = data.get(i);
+//     if (currentValue === null) {
+//       if (ignoreNulls) {
+//         continue;
+//       }
+//       if (nullAsZero) {
+//         currentValue = 0;
+//       }
+//     }
+//     distinct.add(currentValue);
+//   }
+//   return { distinctCount: distinct.size };
+// }

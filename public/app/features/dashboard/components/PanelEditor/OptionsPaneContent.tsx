@@ -231,20 +231,20 @@ export const TabsBarContent: React.FC<{
 
 const tabSelections: Array<SelectableValue<string>> = [
   {
-    label: 'Panel',
+    label: '样式',
     value: 'options',
     tooltip: 'Configure panel display options',
   },
   {
-    label: 'Field',
+    label: '设置',
     value: 'defaults',
     tooltip: 'Configure field options',
   },
-  {
-    label: 'Overrides',
-    value: 'overrides',
-    tooltip: 'Configure field option overrides',
-  },
+  // {
+  //   label: 'Overrides',
+  //   value: 'overrides',
+  //   tooltip: 'Configure field option overrides',
+  // },
 ];
 
 const getStyles = stylesFactory((theme: GrafanaTheme) => {

@@ -30,7 +30,7 @@ export const VariableValuesPreview: React.FunctionComponent<VariableValuesPrevie
 
   return (
     <VerticalGroup spacing="none">
-      <h5>Preview of values</h5>
+      <h5>变量值显示</h5>
       <InlineFieldRow>
         {previewOptions.map((o, index) => (
           <InlineFieldRow key={`${o.value}-${index}`} className={styles.optionContainer}>

@@ -104,7 +104,7 @@ class VariableEditorContainerUnconnected extends PureComponent<Props> {
                 onClick={this.onNewVariable}
                 aria-label={selectors.pages.Dashboard.Settings.Variables.List.newButton}
               >
-                New
+                新建
               </a>
             </>
           )}

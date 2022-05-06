@@ -36,21 +36,20 @@ export const LinkSettingsList: React.FC<LinkSettingsListProps> = ({ dashboard, s
       {dashboard.links.length === 0 ? (
         <EmptyListCTA
           onClick={setupNew}
-          title="There are no dashboard links added yet"
+          title="尚未添加大盘链接"
           buttonIcon="link"
-          buttonTitle="Add Dashboard Link"
-          infoBoxTitle="What are Dashboard Links?"
+          buttonTitle="新增大盘链接"
+          infoBoxTitle="什么是大盘链接？"
           infoBox={{
-            __html:
-              '<p>Dashboard Links allow you to place links to other dashboards and web sites directly below the dashboard header.</p>',
+            __html: '<p>大盘链接允许您将指向其他大盘和网站的链接直接放在大盘标题下方。</p>',
           }}
         />
       ) : (
         <table className="filter-table filter-table--hover">
           <thead>
             <tr>
-              <th>Type</th>
-              <th>Info</th>
+              <th>链接类型</th>
+              <th>链接信息</th>
               <th colSpan={3} />
             </tr>
           </thead>

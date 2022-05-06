@@ -1,6 +1,6 @@
 {
   "type": "panel",
-  "name": "Gauge",
+  "name": "仪表盘",
   "id": "gauge",
 
   "info": {

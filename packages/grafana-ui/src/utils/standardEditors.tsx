@@ -52,7 +52,7 @@ export const getStandardFieldConfigs = () => {
     id: 'displayName',
     path: 'displayName',
     name: '更改图列名称',
-    description: 'Change the field or series name',
+    description: '使图例信息更简单易读',
     editor: standardEditorsRegistry.get('text').editor as any,
     override: standardEditorsRegistry.get('text').editor as any,
     process: stringOverrideProcessor,
@@ -140,7 +140,7 @@ export const getStandardFieldConfigs = () => {
   const thresholds: FieldConfigPropertyItem<any, ThresholdsConfig, ThresholdsFieldConfigSettings> = {
     id: 'thresholds',
     path: 'thresholds',
-    name: 'Thresholds',
+    name: '辅助基线',
     editor: standardEditorsRegistry.get('thresholds').editor as any,
     override: standardEditorsRegistry.get('thresholds').editor as any,
     process: thresholdsOverrideProcessor,
@@ -157,27 +157,27 @@ export const getStandardFieldConfigs = () => {
     getItemsCount: (value) => (value ? value.steps.length : 0),
   };
 
-  const mappings: FieldConfigPropertyItem<any, ValueMapping[], ValueMappingFieldConfigSettings> = {
-    id: 'mappings',
-    path: 'mappings',
-    name: 'Value mappings',
-    description: 'Modify the display text based on input value',
+  // const mappings: FieldConfigPropertyItem<any, ValueMapping[], ValueMappingFieldConfigSettings> = {
+  //   id: 'mappings',
+  //   path: 'mappings',
+  //   name: 'Value mappings',
+  //   description: 'Modify the display text based on input value',
 
-    editor: standardEditorsRegistry.get('mappings').editor as any,
-    override: standardEditorsRegistry.get('mappings').editor as any,
-    process: valueMappingsOverrideProcessor,
-    settings: {},
-    defaultValue: [],
-    shouldApply: () => true,
-    category: ['Value mappings'],
-    getItemsCount: (value?) => (value ? value.length : 0),
-  };
+  //   editor: standardEditorsRegistry.get('mappings').editor as any,
+  //   override: standardEditorsRegistry.get('mappings').editor as any,
+  //   process: valueMappingsOverrideProcessor,
+  //   settings: {},
+  //   defaultValue: [],
+  //   shouldApply: () => true,
+  //   category: ['Value mappings'],
+  //   getItemsCount: (value?) => (value ? value.length : 0),
+  // };
 
   const noValue: FieldConfigPropertyItem<any, string, StringFieldConfigSettings> = {
     id: 'noValue',
     path: 'noValue',
-    name: 'No Value',
-    description: 'What to show when there is no value',
+    name: '没有值',
+    description: '没有值时显示什么',
 
     editor: standardEditorsRegistry.get('text').editor as any,
     override: standardEditorsRegistry.get('text').editor as any,
@@ -221,7 +221,7 @@ export const getStandardFieldConfigs = () => {
     category,
   };
 
-  return [unit, min, max, decimals, displayName, noValue, color, thresholds, mappings, links];
+  return [unit, min, max, decimals, displayName, noValue, color, thresholds, links];
 };
 
 /**
@@ -297,7 +297,7 @@ export const getStandardOptionEditors = () => {
 
   const thresholds: StandardEditorsRegistryItem<ThresholdsConfig> = {
     id: 'thresholds',
-    name: 'Thresholds',
+    name: '辅助基线',
     description: 'Allows defining thresholds',
     editor: ThresholdsValueEditor as any,
   };

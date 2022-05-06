@@ -31,12 +31,12 @@ export function addStandardDataReduceOptions<T extends SingleStatBaseOptions>(
 ) {
   builder.addRadio({
     path: 'reduceOptions.values',
-    name: 'Show',
-    description: 'Calculate a single value per column or series or show each row',
+    name: '显示值',
+    description: '计算每列或每列的单个值或显示每一行',
     settings: {
       options: [
-        { value: false, label: 'Calculate' },
-        { value: true, label: 'All values' },
+        { value: false, label: '计算值' },
+        { value: true, label: '所有值' },
       ],
     },
     defaultValue: false,
@@ -58,8 +58,8 @@ export function addStandardDataReduceOptions<T extends SingleStatBaseOptions>(
   builder.addCustomEditor({
     id: 'reduceOptions.calcs',
     path: 'reduceOptions.calcs',
-    name: 'Calculation',
-    description: 'Choose a reducer function / calculation',
+    name: '计算类型',
+    description: '选择一种计算值',
     editor: standardEditorsRegistry.get('stats-picker').editor as any,
     defaultValue: [ReducerID.lastNotNull],
     // Hides it when all values mode is on
@@ -69,22 +69,23 @@ export function addStandardDataReduceOptions<T extends SingleStatBaseOptions>(
   if (includeFieldMatcher) {
     builder.addSelect({
       path: 'reduceOptions.fields',
-      name: 'Fields',
-      description: 'Select the fields that should be included in the panel',
+      name: '字段',
+      description: '选择应包含在面板中的字段',
       settings: {
         allowCustomValue: true,
         options: [],
         getOptions: async (context: FieldOverrideContext) => {
           const options = [
-            { value: '', label: 'Numeric Fields' },
-            { value: '/.*/', label: 'All Fields' },
+            { value: '', label: '数值' },
+            { value: '/.*/', label: '所有字段' },
           ];
           if (context && context.data) {
             for (const frame of context.data) {
               for (const field of frame.fields) {
                 const name = getFieldDisplayName(field, frame, context.data);
+                const label = name === 'time' ? '时间' : name;
                 const value = `/^${escapeStringForRegex(name)}$/`;
-                options.push({ value, label: name });
+                options.push({ value, label });
               }
             }
           }
@@ -98,13 +99,13 @@ export function addStandardDataReduceOptions<T extends SingleStatBaseOptions>(
   if (includeOrientation) {
     builder.addRadio({
       path: 'orientation',
-      name: 'Orientation',
-      description: 'Stacking direction in case of multiple series or fields',
+      name: '方向',
+      description: '多个系列或字段的堆叠方向',
       settings: {
         options: [
-          { value: VizOrientation.Auto, label: 'Auto' },
-          { value: VizOrientation.Horizontal, label: 'Horizontal' },
-          { value: VizOrientation.Vertical, label: 'Vertical' },
+          { value: VizOrientation.Auto, label: '自适应' },
+          { value: VizOrientation.Horizontal, label: '水平' },
+          { value: VizOrientation.Vertical, label: '垂直' },
         ],
       },
       defaultValue: VizOrientation.Auto,

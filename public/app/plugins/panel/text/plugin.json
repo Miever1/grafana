@@ -1,6 +1,6 @@
 {
   "type": "panel",
-  "name": "Text",
+  "name": "文字",
   "id": "text",
 
   "skipDataQuery": true,

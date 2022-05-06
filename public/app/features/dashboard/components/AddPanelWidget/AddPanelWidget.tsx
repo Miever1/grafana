@@ -144,7 +144,7 @@ export const AddPanelWidgetUnconnected: React.FC<Props> = ({ panel, dashboard, u
   return (
     <div className={cx('panel-container', styles.wrapper)}>
       <AddPanelWidgetHandle onCancel={onCancelAddPanel} onBack={addPanelView ? onBack : undefined} styles={styles}>
-        {addPanelView ? 'Add panel from panel library' : 'Add panel'}
+        {addPanelView ? 'Add panel from panel library' : '新建图表'}
       </AddPanelWidgetHandle>
       {addPanelView ? (
         <LibraryPanelsView
@@ -158,11 +158,11 @@ export const AddPanelWidgetUnconnected: React.FC<Props> = ({ panel, dashboard, u
           <div className={styles.actionsRow}>
             <div onClick={() => onCreateNewPanel()} aria-label={selectors.pages.AddDashboard.addNewPanel}>
               <Icon name="file-blank" size="xl" />
-              Add an empty panel
+              新建图表
             </div>
             <div onClick={onCreateNewRow}>
               <Icon name="wrap-text" size="xl" />
-              Add a new row
+              新建图表组
             </div>
           </div>
           {(config.featureToggles.panelLibrary || copiedPanelPlugins.length === 1) && (
@@ -176,7 +176,7 @@ export const AddPanelWidgetUnconnected: React.FC<Props> = ({ panel, dashboard, u
               {copiedPanelPlugins.length === 1 && (
                 <div onClick={() => onPasteCopiedPanel(copiedPanelPlugins[0])}>
                   <Icon name="clipboard-alt" size="xl" />
-                  Paste panel from clipboard
+                  从克隆版粘贴图表
                 </div>
               )}
             </div>

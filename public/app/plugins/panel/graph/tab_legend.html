@@ -1,9 +1,9 @@
 <div class="editor-row">
   <div class="section gf-form-group">
-    <h5 class="section-heading">Options</h5>
+    <h5 class="section-heading">展示模式</h5>
     <gf-form-switch
       class="gf-form"
-      label="Show"
+      label="是否显示"
       label-class="width-7"
       checked="ctrl.panel.legend.show"
       on-change="ctrl.render()"
@@ -12,7 +12,7 @@
     </gf-form-switch>
     <gf-form-switch
       class="gf-form"
-      label="As Table"
+      label="表格展示"
       label-class="width-7"
       checked="ctrl.panel.legend.alignAsTable"
       on-change="ctrl.render()"
@@ -20,14 +20,14 @@
     </gf-form-switch>
     <gf-form-switch
       class="gf-form"
-      label="To the right"
+      label="右侧展示"
       label-class="width-7"
       checked="ctrl.panel.legend.rightSide"
       on-change="ctrl.render()"
     >
     </gf-form-switch>
     <div ng-if="ctrl.panel.legend.rightSide" class="gf-form">
-      <label class="gf-form-label width-7">Width</label>
+      <label class="gf-form-label width-7">宽度</label>
       <input
         type="number"
         class="gf-form-input max-width-5"
@@ -42,12 +42,12 @@
   </div>
 
   <div class="section gf-form-group">
-    <h5 class="section-heading">Values</h5>
+    <h5 class="section-heading">图例值类型</h5>
 
     <div class="gf-form-inline">
       <gf-form-switch
         class="gf-form"
-        label="Min"
+        label="最小值"
         label-class="width-7"
         checked="ctrl.panel.legend.min"
         on-change="ctrl.legendValuesOptionChanged()"
@@ -56,7 +56,7 @@
 
       <gf-form-switch
         class="gf-form max-width-12"
-        label="Max"
+        label="最大值"
         label-class="width-7"
         switch-class="max-width-5"
         checked="ctrl.panel.legend.max"
@@ -68,7 +68,7 @@
     <div class="gf-form-inline">
       <gf-form-switch
         class="gf-form"
-        label="Avg"
+        label="平均值"
         label-class="width-7"
         checked="ctrl.panel.legend.avg"
         on-change="ctrl.legendValuesOptionChanged()"
@@ -77,7 +77,7 @@
 
       <gf-form-switch
         class="gf-form max-width-12"
-        label="Current"
+        label="当前值"
         label-class="width-7"
         switch-class="max-width-5"
         checked="ctrl.panel.legend.current"
@@ -89,7 +89,7 @@
     <div class="gf-form-inline">
       <gf-form-switch
         class="gf-form"
-        label="Total"
+        label="总计值"
         label-class="width-7"
         checked="ctrl.panel.legend.total"
         on-change="ctrl.legendValuesOptionChanged()"
@@ -97,7 +97,7 @@
       </gf-form-switch>
 
       <div class="gf-form">
-        <label class="gf-form-label width-7">Decimals</label>
+        <label class="gf-form-label width-7">小数点位数</label>
         <input
           type="number"
           class="gf-form-input width-5"
@@ -112,7 +112,7 @@
     </div>
   </div>
 
-  <div class="section gf-form-group">
+  <!-- <div class="section gf-form-group">
     <h5 class="section-heading">Hide series</h5>
     <gf-form-switch
       class="gf-form"
@@ -130,5 +130,5 @@
       on-change="ctrl.render()"
     >
     </gf-form-switch>
-  </div>
+  </div> -->
 </div>

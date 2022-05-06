@@ -57,7 +57,7 @@ export const VizTypePicker: React.FC<Props> = ({ searchQuery, onTypeChange, curr
   const theme = useTheme();
   const styles = getStyles(theme);
   const pluginsList: PanelPluginMeta[] = useMemo(() => {
-    const visibleList = ['timeseries', 'stat', 'gauge', 'table', 'piechart', 'text'];
+    const visibleList = ['graph', 'timeseries', 'stat', 'gauge', 'table', 'piechart', 'text'];
     return getAllPanelPluginMeta().filter((item) => visibleList.includes(item.id));
   }, []);
 
