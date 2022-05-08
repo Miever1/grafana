@@ -13,9 +13,9 @@ export const plugin = new PanelPlugin<Options, CustomFieldConfig>(TablePanel)
       builder
         .addNumberInput({
           path: 'width',
-          name: 'Column width',
+          name: '列宽',
           settings: {
-            placeholder: 'auto',
+            placeholder: '自动',
             min: 20,
             max: 300,
           },
@@ -23,13 +23,13 @@ export const plugin = new PanelPlugin<Options, CustomFieldConfig>(TablePanel)
         })
         .addRadio({
           path: 'align',
-          name: 'Column alignment',
+          name: '列对齐',
           settings: {
             options: [
-              { label: 'auto', value: null },
-              { label: 'left', value: 'left' },
-              { label: 'center', value: 'center' },
-              { label: 'right', value: 'right' },
+              { label: '自动', value: null },
+              { label: '左对齐', value: 'left' },
+              { label: '居中', value: 'center' },
+              { label: '右对齐', value: 'right' },
             ],
           },
           defaultValue: null,
@@ -53,8 +53,8 @@ export const plugin = new PanelPlugin<Options, CustomFieldConfig>(TablePanel)
         })
         .addBooleanSwitch({
           path: 'filterable',
-          name: 'Column filter',
-          description: 'Enables/disables field filters in table',
+          name: '列过滤器',
+          description: '启用/禁用表中的字段过滤器',
           defaultValue: false,
         });
     },
@@ -62,8 +62,8 @@ export const plugin = new PanelPlugin<Options, CustomFieldConfig>(TablePanel)
   .setPanelOptions((builder) => {
     builder.addBooleanSwitch({
       path: 'showHeader',
-      name: 'Show header',
-      description: "To display table's header or not to display",
+      name: '显示标题',
+      description: '显示或不显示表头',
       defaultValue: true,
     });
   });

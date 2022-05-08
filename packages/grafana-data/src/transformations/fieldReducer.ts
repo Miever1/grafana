@@ -125,111 +125,111 @@ export function reduceField(options: ReduceFieldOptions): FieldCalcs {
 // ------------------------------------------------------------------------------
 
 export const fieldReducers = new Registry<FieldReducerInfo>(() => [
-  {
-    id: ReducerID.lastNotNull,
-    name: 'Last (not null)',
-    description: 'Last non-null value',
-    standard: true,
-    aliasIds: ['current'],
-    reduce: calculateLastNotNull,
-  },
+  // {
+  //   id: ReducerID.lastNotNull,
+  //   name: '最新值 *',
+  //   description: 'Last non-null value',
+  //   standard: true,
+  //   aliasIds: ['current'],
+  //   reduce: calculateLastNotNull,
+  // },
   {
     id: ReducerID.last,
-    name: 'Last',
+    name: '最新值',
     description: 'Last Value',
     standard: true,
     reduce: calculateLast,
   },
-  { id: ReducerID.first, name: 'First', description: 'First Value', standard: true, reduce: calculateFirst },
-  {
-    id: ReducerID.firstNotNull,
-    name: 'First (not null)',
-    description: 'First non-null value',
-    standard: true,
-    reduce: calculateFirstNotNull,
-  },
-  { id: ReducerID.min, name: 'Min', description: 'Minimum Value', standard: true },
-  { id: ReducerID.max, name: 'Max', description: 'Maximum Value', standard: true },
-  { id: ReducerID.mean, name: 'Mean', description: 'Average Value', standard: true, aliasIds: ['avg'] },
+  { id: ReducerID.first, name: '初始值', description: 'First Value', standard: true, reduce: calculateFirst },
+  // {
+  //   id: ReducerID.firstNotNull,
+  //   name: '初始值 *',
+  //   description: 'First non-null value',
+  //   standard: true,
+  //   reduce: calculateFirstNotNull,
+  // },
+  { id: ReducerID.min, name: '最小值', description: 'Minimum Value', standard: true },
+  { id: ReducerID.max, name: '最大值', description: 'Maximum Value', standard: true },
+  { id: ReducerID.mean, name: '平均值', description: 'Average Value', standard: true, aliasIds: ['avg'] },
   {
     id: ReducerID.sum,
-    name: 'Total',
+    name: '求和值',
     description: 'The sum of all values',
     emptyInputResult: 0,
     standard: true,
     aliasIds: ['total'],
   },
-  {
-    id: ReducerID.count,
-    name: 'Count',
-    description: 'Number of values in response',
-    emptyInputResult: 0,
-    standard: true,
-  },
-  {
-    id: ReducerID.range,
-    name: 'Range',
-    description: 'Difference between minimum and maximum values',
-    standard: true,
-  },
-  {
-    id: ReducerID.delta,
-    name: 'Delta',
-    description: 'Cumulative change in value',
-    standard: true,
-  },
-  {
-    id: ReducerID.step,
-    name: 'Step',
-    description: 'Minimum interval between values',
-    standard: true,
-  },
-  {
-    id: ReducerID.diff,
-    name: 'Difference',
-    description: 'Difference between first and last values',
-    standard: true,
-  },
-  {
-    id: ReducerID.logmin,
-    name: 'Min (above zero)',
-    description: 'Used for log min scale',
-    standard: true,
-  },
-  {
-    id: ReducerID.allIsZero,
-    name: 'All Zeros',
-    description: 'All values are zero',
-    emptyInputResult: false,
-    standard: true,
-  },
-  {
-    id: ReducerID.allIsNull,
-    name: 'All Nulls',
-    description: 'All values are null',
-    emptyInputResult: true,
-    standard: true,
-  },
-  {
-    id: ReducerID.changeCount,
-    name: 'Change Count',
-    description: 'Number of times the value changes',
-    standard: false,
-    reduce: calculateChangeCount,
-  },
-  {
-    id: ReducerID.distinctCount,
-    name: 'Distinct Count',
-    description: 'Number of distinct values',
-    standard: false,
-    reduce: calculateDistinctCount,
-  },
-  {
-    id: ReducerID.diffperc,
-    name: 'Difference percent',
-    description: 'Percentage difference between first and last values',
-    standard: true,
-  },
+  // {
+  //   id: ReducerID.count,
+  //   name: 'Count',
+  //   description: 'Number of values in response',
+  //   emptyInputResult: 0,
+  //   standard: true,
+  // },
+  // {
+  //   id: ReducerID.range,
+  //   name: 'Range',
+  //   description: 'Difference between minimum and maximum values',
+  //   standard: true,
+  // },
+  // {
+  //   id: ReducerID.delta,
+  //   name: 'Delta',
+  //   description: 'Cumulative change in value',
+  //   standard: true,
+  // },
+  // {
+  //   id: ReducerID.step,
+  //   name: 'Step',
+  //   description: 'Minimum interval between values',
+  //   standard: true,
+  // },
+  // {
+  //   id: ReducerID.diff,
+  //   name: 'Difference',
+  //   description: 'Difference between first and last values',
+  //   standard: true,
+  // },
+  // {
+  //   id: ReducerID.logmin,
+  //   name: 'Min (above zero)',
+  //   description: 'Used for log min scale',
+  //   standard: true,
+  // },
+  // {
+  //   id: ReducerID.allIsZero,
+  //   name: 'All Zeros',
+  //   description: 'All values are zero',
+  //   emptyInputResult: false,
+  //   standard: true,
+  // },
+  // {
+  //   id: ReducerID.allIsNull,
+  //   name: 'All Nulls',
+  //   description: 'All values are null',
+  //   emptyInputResult: true,
+  //   standard: true,
+  // },
+  // {
+  //   id: ReducerID.changeCount,
+  //   name: 'Change Count',
+  //   description: 'Number of times the value changes',
+  //   standard: false,
+  //   reduce: calculateChangeCount,
+  // },
+  // {
+  //   id: ReducerID.distinctCount,
+  //   name: 'Distinct Count',
+  //   description: 'Number of distinct values',
+  //   standard: false,
+  //   reduce: calculateDistinctCount,
+  // },
+  // {
+  //   id: ReducerID.diffperc,
+  //   name: 'Difference percent',
+  //   description: 'Percentage difference between first and last values',
+  //   standard: true,
+  // },
 ]);
 
 export function doStandardCalcs(field: Field, ignoreNulls: boolean, nullAsZero: boolean): FieldCalcs {
@@ -371,73 +371,73 @@ function calculateFirst(field: Field, ignoreNulls: boolean, nullAsZero: boolean)
   return { first: field.values.get(0) };
 }
 
-function calculateFirstNotNull(field: Field, ignoreNulls: boolean, nullAsZero: boolean): FieldCalcs {
-  const data = field.values;
-  for (let idx = 0; idx < data.length; idx++) {
-    const v = data.get(idx);
-    if (v != null && v !== undefined) {
-      return { firstNotNull: v };
-    }
-  }
-  return { firstNotNull: null };
-}
+// function calculateFirstNotNull(field: Field, ignoreNulls: boolean, nullAsZero: boolean): FieldCalcs {
+//   const data = field.values;
+//   for (let idx = 0; idx < data.length; idx++) {
+//     const v = data.get(idx);
+//     if (v != null && v !== undefined) {
+//       return { firstNotNull: v };
+//     }
+//   }
+//   return { firstNotNull: null };
+// }
 
 function calculateLast(field: Field, ignoreNulls: boolean, nullAsZero: boolean): FieldCalcs {
   const data = field.values;
   return { last: data.get(data.length - 1) };
 }
 
-function calculateLastNotNull(field: Field, ignoreNulls: boolean, nullAsZero: boolean): FieldCalcs {
-  const data = field.values;
-  let idx = data.length - 1;
-  while (idx >= 0) {
-    const v = data.get(idx--);
-    if (v != null && v !== undefined) {
-      return { lastNotNull: v };
-    }
-  }
-  return { lastNotNull: null };
-}
+// function calculateLastNotNull(field: Field, ignoreNulls: boolean, nullAsZero: boolean): FieldCalcs {
+//   const data = field.values;
+//   let idx = data.length - 1;
+//   while (idx >= 0) {
+//     const v = data.get(idx--);
+//     if (v != null && v !== undefined) {
+//       return { lastNotNull: v };
+//     }
+//   }
+//   return { lastNotNull: null };
+// }
 
-function calculateChangeCount(field: Field, ignoreNulls: boolean, nullAsZero: boolean): FieldCalcs {
-  const data = field.values;
-  let count = 0;
-  let first = true;
-  let last: any = null;
-  for (let i = 0; i < data.length; i++) {
-    let currentValue = data.get(i);
-    if (currentValue === null) {
-      if (ignoreNulls) {
-        continue;
-      }
-      if (nullAsZero) {
-        currentValue = 0;
-      }
-    }
-    if (!first && last !== currentValue) {
-      count++;
-    }
-    first = false;
-    last = currentValue;
-  }
+// function calculateChangeCount(field: Field, ignoreNulls: boolean, nullAsZero: boolean): FieldCalcs {
+//   const data = field.values;
+//   let count = 0;
+//   let first = true;
+//   let last: any = null;
+//   for (let i = 0; i < data.length; i++) {
+//     let currentValue = data.get(i);
+//     if (currentValue === null) {
+//       if (ignoreNulls) {
+//         continue;
+//       }
+//       if (nullAsZero) {
+//         currentValue = 0;
+//       }
+//     }
+//     if (!first && last !== currentValue) {
+//       count++;
+//     }
+//     first = false;
+//     last = currentValue;
+//   }
 
-  return { changeCount: count };
-}
+//   return { changeCount: count };
+// }
 
-function calculateDistinctCount(field: Field, ignoreNulls: boolean, nullAsZero: boolean): FieldCalcs {
-  const data = field.values;
-  const distinct = new Set<any>();
-  for (let i = 0; i < data.length; i++) {
-    let currentValue = data.get(i);
-    if (currentValue === null) {
-      if (ignoreNulls) {
-        continue;
-      }
-      if (nullAsZero) {
-        currentValue = 0;
-      }
-    }
-    distinct.add(currentValue);
-  }
-  return { distinctCount: distinct.size };
-}
+// function calculateDistinctCount(field: Field, ignoreNulls: boolean, nullAsZero: boolean): FieldCalcs {
+//   const data = field.values;
+//   const distinct = new Set<any>();
+//   for (let i = 0; i < data.length; i++) {
+//     let currentValue = data.get(i);
+//     if (currentValue === null) {
+//       if (ignoreNulls) {
+//         continue;
+//       }
+//       if (nullAsZero) {
+//         currentValue = 0;
+//       }
+//     }
+//     distinct.add(currentValue);
+//   }
+//   return { distinctCount: distinct.size };
+// }

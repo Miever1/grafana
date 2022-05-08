@@ -21,10 +21,10 @@ import { Label } from '../Forms/Label';
 import { isNumber } from 'lodash';
 
 const modes: Array<SelectableValue<ThresholdsMode>> = [
-  { value: ThresholdsMode.Absolute, label: 'Absolute', description: 'Pick thresholds based on the absolute values' },
+  { value: ThresholdsMode.Absolute, label: '绝对值', description: 'Pick thresholds based on the absolute values' },
   {
     value: ThresholdsMode.Percentage,
-    label: 'Percentage',
+    label: '百分比',
     description: 'Pick threshold based on the percent between min/max',
   },
 ];
@@ -217,7 +217,7 @@ export class ThresholdsEditor extends PureComponent<Props, State> {
                 className={styles.addButton}
                 fullWidth
               >
-                Add threshold
+                添加辅助基线
               </Button>
               <div className={styles.thresholds}>
                 {steps
@@ -231,7 +231,7 @@ export class ThresholdsEditor extends PureComponent<Props, State> {
               </div>
 
               <div>
-                <Label description="Percentage means thresholds relative to min & max">Thresholds mode</Label>
+                <Label description="百分比表示相对于最小值和最大值的阈值">基线模式</Label>
                 <FullWidthButtonContainer>
                   <RadioButtonGroup size="sm" options={modes} onChange={this.onModeChanged} value={thresholds.mode} />
                 </FullWidthButtonContainer>

@@ -144,7 +144,7 @@ class DashNav extends PureComponent<Props> {
     if (canStar) {
       buttons.push(
         <DashNavButton
-          tooltip="Mark as favorite"
+          tooltip="收藏"
           icon={isStarred ? 'favorite' : 'star'}
           iconType={isStarred ? 'mono' : 'default'}
           iconSize="lg"
@@ -159,7 +159,7 @@ class DashNav extends PureComponent<Props> {
         <ModalsController key="button-share">
           {({ showModal, hideModal }) => (
             <DashNavButton
-              tooltip="Share dashboard or panel"
+              tooltip="分享大盘"
               icon="share-alt"
               iconSize="lg"
               onClick={() => {
@@ -194,9 +194,7 @@ class DashNav extends PureComponent<Props> {
     const { snapshot } = dashboard;
     const snapshotUrl = snapshot && snapshot.originalUrl;
     const buttons: ReactNode[] = [];
-    const tvButton = (
-      <ToolbarButton tooltip="Cycle view mode" icon="monitor" onClick={this.onToggleTVMode} key="tv-button" />
-    );
+    const tvButton = <ToolbarButton tooltip="全屏" icon="monitor" onClick={this.onToggleTVMode} key="tv-button" />;
 
     let timeControls: React.ReactNode | null;
 
@@ -220,12 +218,12 @@ class DashNav extends PureComponent<Props> {
     }
 
     if (canEdit && !isFullscreen) {
-      buttons.push(<ToolbarButton tooltip="Add panel" icon="panel-add" onClick={onAddPanel} key="button-panel-add" />);
+      buttons.push(<ToolbarButton tooltip="新建图表" icon="panel-add" onClick={onAddPanel} key="button-panel-add" />);
       buttons.push(
         <ModalsController key="button-save">
           {({ showModal, hideModal }) => (
             <ToolbarButton
-              tooltip="Save dashboard"
+              tooltip="保存"
               icon="save"
               onClick={() => {
                 showModal(SaveDashboardModalProxy, {
@@ -251,9 +249,7 @@ class DashNav extends PureComponent<Props> {
     }
 
     if (showSettings) {
-      buttons.push(
-        <ToolbarButton tooltip="Dashboard settings" icon="cog" onClick={this.onOpenSettings} key="button-settings" />
-      );
+      buttons.push(<ToolbarButton tooltip="设置" icon="cog" onClick={this.onOpenSettings} key="button-settings" />);
     }
 
     this.addCustomContent(customRightActions, buttons);

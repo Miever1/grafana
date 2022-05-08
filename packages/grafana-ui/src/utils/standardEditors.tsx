@@ -14,8 +14,8 @@ import {
   ThresholdsFieldConfigSettings,
   thresholdsOverrideProcessor,
   ValueMapping,
-  ValueMappingFieldConfigSettings,
-  valueMappingsOverrideProcessor,
+  // ValueMappingFieldConfigSettings,
+  // valueMappingsOverrideProcessor,
   ThresholdsMode,
   identityOverrideProcessor,
   TimeZone,
@@ -47,12 +47,12 @@ import { StatsPickerEditor } from '../components/OptionsUI/stats';
  * Returns collection of common field config properties definitions
  */
 export const getStandardFieldConfigs = () => {
-  const category = ['Standard options'];
+  const category = ['标准设置'];
   const displayName: FieldConfigPropertyItem<any, string, StringFieldConfigSettings> = {
     id: 'displayName',
     path: 'displayName',
-    name: 'Display name',
-    description: 'Change the field or series name',
+    name: '更改图列名称',
+    description: '使图例信息更简单易读',
     editor: standardEditorsRegistry.get('text').editor as any,
     override: standardEditorsRegistry.get('text').editor as any,
     process: stringOverrideProcessor,
@@ -67,7 +67,7 @@ export const getStandardFieldConfigs = () => {
   const unit: FieldConfigPropertyItem<any, string, StringFieldConfigSettings> = {
     id: 'unit',
     path: 'unit',
-    name: 'Unit',
+    name: '单位',
     description: '',
 
     editor: standardEditorsRegistry.get('unit').editor as any,
@@ -85,8 +85,8 @@ export const getStandardFieldConfigs = () => {
   const min: FieldConfigPropertyItem<any, number, NumberFieldConfigSettings> = {
     id: 'min',
     path: 'min',
-    name: 'Min',
-    description: 'Leave empty to calculate based on all values',
+    name: '坐标轴最小值',
+    description: '可留空自动根据所有值计算最小值而适应坐标轴',
 
     editor: standardEditorsRegistry.get('number').editor as any,
     override: standardEditorsRegistry.get('number').editor as any,
@@ -102,8 +102,8 @@ export const getStandardFieldConfigs = () => {
   const max: FieldConfigPropertyItem<any, number, NumberFieldConfigSettings> = {
     id: 'max',
     path: 'max',
-    name: 'Max',
-    description: 'Leave empty to calculate based on all values',
+    name: '坐标轴最大值',
+    description: '可留空自动根据所有值计算最大值而适应坐标轴',
 
     editor: standardEditorsRegistry.get('number').editor as any,
     override: standardEditorsRegistry.get('number').editor as any,
@@ -120,7 +120,7 @@ export const getStandardFieldConfigs = () => {
   const decimals: FieldConfigPropertyItem<any, number, NumberFieldConfigSettings> = {
     id: 'decimals',
     path: 'decimals',
-    name: 'Decimals',
+    name: '小数点精度',
 
     editor: standardEditorsRegistry.get('number').editor as any,
     override: standardEditorsRegistry.get('number').editor as any,
@@ -140,7 +140,7 @@ export const getStandardFieldConfigs = () => {
   const thresholds: FieldConfigPropertyItem<any, ThresholdsConfig, ThresholdsFieldConfigSettings> = {
     id: 'thresholds',
     path: 'thresholds',
-    name: 'Thresholds',
+    name: '辅助基线',
     editor: standardEditorsRegistry.get('thresholds').editor as any,
     override: standardEditorsRegistry.get('thresholds').editor as any,
     process: thresholdsOverrideProcessor,
@@ -153,31 +153,31 @@ export const getStandardFieldConfigs = () => {
       ],
     },
     shouldApply: () => true,
-    category: ['Thresholds'],
+    category: ['辅助基线'],
     getItemsCount: (value) => (value ? value.steps.length : 0),
   };
 
-  const mappings: FieldConfigPropertyItem<any, ValueMapping[], ValueMappingFieldConfigSettings> = {
-    id: 'mappings',
-    path: 'mappings',
-    name: 'Value mappings',
-    description: 'Modify the display text based on input value',
+  // const mappings: FieldConfigPropertyItem<any, ValueMapping[], ValueMappingFieldConfigSettings> = {
+  //   id: 'mappings',
+  //   path: 'mappings',
+  //   name: 'Value mappings',
+  //   description: 'Modify the display text based on input value',
 
-    editor: standardEditorsRegistry.get('mappings').editor as any,
-    override: standardEditorsRegistry.get('mappings').editor as any,
-    process: valueMappingsOverrideProcessor,
-    settings: {},
-    defaultValue: [],
-    shouldApply: () => true,
-    category: ['Value mappings'],
-    getItemsCount: (value?) => (value ? value.length : 0),
-  };
+  //   editor: standardEditorsRegistry.get('mappings').editor as any,
+  //   override: standardEditorsRegistry.get('mappings').editor as any,
+  //   process: valueMappingsOverrideProcessor,
+  //   settings: {},
+  //   defaultValue: [],
+  //   shouldApply: () => true,
+  //   category: ['Value mappings'],
+  //   getItemsCount: (value?) => (value ? value.length : 0),
+  // };
 
   const noValue: FieldConfigPropertyItem<any, string, StringFieldConfigSettings> = {
     id: 'noValue',
     path: 'noValue',
-    name: 'No Value',
-    description: 'What to show when there is no value',
+    name: '没有值',
+    description: '没有值时显示什么',
 
     editor: standardEditorsRegistry.get('text').editor as any,
     override: standardEditorsRegistry.get('text').editor as any,
@@ -194,7 +194,7 @@ export const getStandardFieldConfigs = () => {
   const links: FieldConfigPropertyItem<any, DataLink[], StringFieldConfigSettings> = {
     id: 'links',
     path: 'links',
-    name: 'Data links',
+    name: '数据跳转链接',
     editor: standardEditorsRegistry.get('links').editor as any,
     override: standardEditorsRegistry.get('links').editor as any,
     process: dataLinksOverrideProcessor,
@@ -202,14 +202,14 @@ export const getStandardFieldConfigs = () => {
       placeholder: '-',
     },
     shouldApply: () => true,
-    category: ['Data links'],
+    category: ['数据跳转链接'],
     getItemsCount: (value) => (value ? value.length : 0),
   };
 
   const color: FieldConfigPropertyItem<any, FieldColor | undefined, FieldColorConfigSettings> = {
     id: 'color',
     path: 'color',
-    name: 'Color scheme',
+    name: '配色方案',
     editor: standardEditorsRegistry.get('fieldColor').editor as any,
     override: standardEditorsRegistry.get('fieldColor').editor as any,
     process: identityOverrideProcessor,
@@ -221,7 +221,7 @@ export const getStandardFieldConfigs = () => {
     category,
   };
 
-  return [unit, min, max, decimals, displayName, noValue, color, thresholds, mappings, links];
+  return [unit, min, max, decimals, displayName, noValue, color, thresholds, links];
 };
 
 /**
@@ -297,7 +297,7 @@ export const getStandardOptionEditors = () => {
 
   const thresholds: StandardEditorsRegistryItem<ThresholdsConfig> = {
     id: 'thresholds',
-    name: 'Thresholds',
+    name: '辅助基线',
     description: 'Allows defining thresholds',
     editor: ThresholdsValueEditor as any,
   };

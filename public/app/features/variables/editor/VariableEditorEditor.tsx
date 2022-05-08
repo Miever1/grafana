@@ -125,13 +125,13 @@ export class VariableEditorEditorUnConnected extends PureComponent<Props> {
         <form aria-label="Variable editor Form" onSubmit={this.onHandleSubmit}>
           <VerticalGroup spacing="lg">
             <VerticalGroup spacing="none">
-              <VariableSectionHeader name="General" />
+              <VariableSectionHeader name="基础设置" />
               <InlineFieldRow>
                 <VariableTextField
                   value={this.props.editor.name}
                   onChange={this.onNameChange}
-                  name="Name"
-                  placeholder="name"
+                  name="变量名"
+                  placeholder="请输入变量名"
                   required
                   ariaLabel={selectors.pages.Dashboard.Settings.Variables.Edit.General.generalNameInput}
                 />
@@ -148,8 +148,8 @@ export class VariableEditorEditorUnConnected extends PureComponent<Props> {
                 <VariableTextField
                   value={this.props.variable.label ?? ''}
                   onChange={this.onLabelChange}
-                  name="Label"
-                  placeholder="optional display name"
+                  name="显示名"
+                  placeholder="请输入显示名"
                   ariaLabel={selectors.pages.Dashboard.Settings.Variables.Edit.General.generalLabelInput}
                 />
                 <VariableHideSelect
@@ -160,9 +160,9 @@ export class VariableEditorEditorUnConnected extends PureComponent<Props> {
               </InlineFieldRow>
 
               <VariableTextField
-                name="Description"
+                name="备注"
                 value={variable.description ?? ''}
-                placeholder="descriptive text"
+                placeholder="请输入备注"
                 onChange={this.onDescriptionChange}
                 grow
               />
@@ -178,7 +178,7 @@ export class VariableEditorEditorUnConnected extends PureComponent<Props> {
                 aria-label={selectors.pages.Dashboard.Settings.Variables.Edit.General.submitButton}
                 disabled={loading}
               >
-                Update
+                更新
                 {loading ? (
                   <Icon className="spin-clockwise" name="sync" size="sm" style={{ marginLeft: '2px' }} />
                 ) : null}

@@ -11,14 +11,14 @@ export const plugin = new PanelPlugin<Options, GraphFieldConfig>(TimeSeriesPanel
   .setPanelOptions((builder) => {
     builder.addRadio({
       path: 'tooltipOptions.mode',
-      name: 'Tooltip mode',
+      name: '图例提示方式',
       description: '',
       defaultValue: 'single',
       settings: {
         options: [
-          { value: 'single', label: 'Single' },
-          { value: 'multi', label: 'All' },
-          { value: 'none', label: 'Hidden' },
+          { value: 'single', label: '单点' },
+          { value: 'multi', label: '所有点' },
+          { value: 'none', label: '隐藏' },
         ],
       },
     });

@@ -2,11 +2,11 @@ import React, { FormEvent, PureComponent } from 'react';
 import { MapDispatchToProps, MapStateToProps } from 'react-redux';
 import { css } from 'emotion';
 import { AppEvents, NavModel } from '@grafana/data';
-import { Button, stylesFactory, Input, TextArea, Field, Form, Legend, FileUpload } from '@grafana/ui';
+import { Button, stylesFactory, TextArea, Field, Form, Legend, FileUpload } from '@grafana/ui';
 import Page from 'app/core/components/Page/Page';
 import { connectWithCleanUp } from 'app/core/components/connectWithCleanUp';
 import { ImportDashboardOverview } from './components/ImportDashboardOverview';
-import { validateDashboardJson, validateGcomDashboard } from './utils/validation';
+import { validateDashboardJson } from './utils/validation';
 import { fetchGcomDashboard, importDashboardJson } from './state/actions';
 import appEvents from 'app/core/app_events';
 import { getNavModel } from 'app/core/selectors/navModel';
@@ -78,10 +78,10 @@ class DashboardImportUnConnected extends PureComponent<Props> {
       <>
         <div className={styles.option}>
           <FileUpload accept="application/json" onFileUpload={this.onFileUpload}>
-            Upload JSON file
+            JSON文件上传
           </FileUpload>
         </div>
-        <div className={styles.option}>
+        {/* <div className={styles.option}>
           <Legend>Import via grafana.com</Legend>
           <Form onSubmit={this.getGcomDashboard} defaultValues={{ gcomDashboard: '' }}>
             {({ register, errors }) => (
@@ -99,9 +99,9 @@ class DashboardImportUnConnected extends PureComponent<Props> {
               </Field>
             )}
           </Form>
-        </div>
+        </div> */}
         <div className={styles.option}>
-          <Legend>Import via panel json</Legend>
+          <Legend>通过json面板导入</Legend>
           <Form onSubmit={this.getDashboardFromJson} defaultValues={{ dashboardJson: '' }}>
             {({ register, errors }) => (
               <>
@@ -115,7 +115,7 @@ class DashboardImportUnConnected extends PureComponent<Props> {
                     rows={10}
                   />
                 </Field>
-                <Button type="submit">Load</Button>
+                <Button type="submit">加载</Button>
               </>
             )}
           </Form>

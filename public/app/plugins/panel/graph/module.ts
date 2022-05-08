@@ -162,7 +162,7 @@ export class GraphCtrl extends MetricsPanelCtrl {
     this.events.on(PanelEvents.dataFramesReceived, this.onDataFramesReceived.bind(this));
     this.events.on(PanelEvents.dataSnapshotLoad, this.onDataSnapshotLoad.bind(this));
     this.events.on(PanelEvents.editModeInitialized, this.onInitEditMode.bind(this));
-    this.events.on(PanelEvents.initPanelActions, this.onInitPanelActions.bind(this));
+    // this.events.on(PanelEvents.initPanelActions, this.onInitPanelActions.bind(this));
 
     // set axes format from field config
     const fieldConfigUnit = this.panel.fieldConfig.defaults.unit;
@@ -172,12 +172,12 @@ export class GraphCtrl extends MetricsPanelCtrl {
   }
 
   onInitEditMode() {
-    this.addEditorTab('Display', 'public/app/plugins/panel/graph/tab_display.html');
-    this.addEditorTab('Series overrides', 'public/app/plugins/panel/graph/tab_series_overrides.html');
-    this.addEditorTab('Axes', axesEditorComponent);
-    this.addEditorTab('Legend', 'public/app/plugins/panel/graph/tab_legend.html');
-    this.addEditorTab('Thresholds', 'public/app/plugins/panel/graph/tab_thresholds.html');
-    this.addEditorTab('Time regions', 'public/app/plugins/panel/graph/tab_time_regions.html');
+    // this.addEditorTab('Display', 'public/app/plugins/panel/graph/tab_display.html');
+    // this.addEditorTab('Series overrides', 'public/app/plugins/panel/graph/tab_series_overrides.html');
+    this.addEditorTab('坐标轴设置', axesEditorComponent);
+    this.addEditorTab('图例设置', 'public/app/plugins/panel/graph/tab_legend.html');
+    this.addEditorTab('辅助基线', 'public/app/plugins/panel/graph/tab_thresholds.html');
+    // this.addEditorTab('Time regions', 'public/app/plugins/panel/graph/tab_time_regions.html');
     this.subTabIndex = 0;
     this.hiddenSeriesTainted = false;
   }

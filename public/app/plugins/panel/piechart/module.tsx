@@ -26,62 +26,62 @@ export const plugin = new PanelPlugin<PieChartOptions>(PieChartPanel)
 
     builder
       .addRadio({
-        name: 'Piechart type',
-        description: 'How the piechart should be rendered',
+        name: '饼图类型',
+        description: '应该如何呈现饼图',
         path: 'pieType',
         settings: {
           options: [
-            { value: PieChartType.Pie, label: 'Pie' },
-            { value: PieChartType.Donut, label: 'Donut' },
+            { value: PieChartType.Pie, label: '饼状' },
+            { value: PieChartType.Donut, label: '环状' },
           ],
         },
         defaultValue: PieChartType.Pie,
       })
       .addMultiSelect({
-        name: 'Labels',
+        name: '标签',
         path: 'displayLabels',
-        description: 'Select the labels to be displayed in the pie chart',
+        description: '选择要在饼图中显示的标签',
         settings: {
           options: [
-            { value: PieChartLabels.Percent, label: 'Percent' },
-            { value: PieChartLabels.Name, label: 'Name' },
-            { value: PieChartLabels.Value, label: 'Value' },
+            { value: PieChartLabels.Percent, label: '百分比' },
+            { value: PieChartLabels.Name, label: '图例名' },
+            { value: PieChartLabels.Value, label: '数值' },
           ],
         },
       })
       .addRadio({
         path: 'legend.displayMode',
-        name: 'Legend mode',
+        name: '展示模式',
         description: '',
         defaultValue: LegendDisplayMode.List,
         settings: {
           options: [
-            { value: LegendDisplayMode.List, label: 'List' },
-            { value: LegendDisplayMode.Table, label: 'Table' },
-            { value: LegendDisplayMode.Hidden, label: 'Hidden' },
+            { value: LegendDisplayMode.List, label: '列表模式' },
+            { value: LegendDisplayMode.Table, label: '表格模式' },
+            { value: LegendDisplayMode.Hidden, label: '隐藏模式' },
           ],
         },
       })
       .addRadio({
         path: 'legend.placement',
-        name: 'Legend placement',
+        name: '图列放置位置',
         description: '',
         defaultValue: 'right',
         settings: {
           options: [
-            { value: 'bottom', label: 'Bottom' },
-            { value: 'right', label: 'Right' },
+            { value: 'bottom', label: '底部' },
+            { value: 'right', label: '右侧' },
           ],
         },
         showIf: (c) => c.legend.displayMode !== LegendDisplayMode.Hidden,
       })
       .addMultiSelect({
-        name: 'Legend values',
+        name: '图列展示值',
         path: 'legend.values',
         settings: {
           options: [
-            { value: PieChartLegendValues.Percent, label: 'Percent' },
-            { value: PieChartLegendValues.Value, label: 'Value' },
+            { value: PieChartLegendValues.Percent, label: '百分比' },
+            { value: PieChartLegendValues.Value, label: '值' },
           ],
         },
         showIf: (c) => c.legend.displayMode !== LegendDisplayMode.Hidden,

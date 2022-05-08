@@ -20,7 +20,7 @@ import { getTimeSrv } from '../../dashboard/services/TimeSrv';
 import { isLegacyQueryEditor, isQueryEditor } from '../guard';
 import { VariableSectionHeader } from '../editor/VariableSectionHeader';
 import { VariableTextField } from '../editor/VariableTextField';
-import { VariableSwitchField } from '../editor/VariableSwitchField';
+// import { VariableSwitchField } from '../editor/VariableSwitchField';
 import { QueryVariableRefreshSelect } from './QueryVariableRefreshSelect';
 import { QueryVariableSortSelect } from './QueryVariableSortSelect';
 import { DataSourcePicker } from 'app/core/components/Select/DataSourcePicker';
@@ -185,11 +185,11 @@ export class QueryVariableEditorUnConnected extends PureComponent<Props, State> 
   render() {
     return (
       <VerticalGroup spacing="xs">
-        <VariableSectionHeader name="Query Options" />
+        <VariableSectionHeader name="查询选项" />
         <VerticalGroup spacing="lg">
           <VerticalGroup spacing="none">
             <InlineFieldRow>
-              <InlineField label="Data source" labelWidth={20}>
+              <InlineField label="数据源" labelWidth={20}>
                 <DataSourcePicker
                   current={this.props.variable.datasource}
                   onChange={this.onDataSourceChange}
@@ -208,7 +208,7 @@ export class QueryVariableEditorUnConnected extends PureComponent<Props, State> 
             </div>
             <VariableTextField
               value={this.state.regex ?? this.props.variable.regex}
-              name="Regex"
+              name="正则表达式"
               placeholder="/.*-(?<text>.*)-(?<value>.*)-.*/"
               onChange={this.onRegExChange}
               onBlur={this.onRegExBlur}
@@ -238,7 +238,7 @@ export class QueryVariableEditorUnConnected extends PureComponent<Props, State> 
             onMultiChanged={this.props.changeVariableMultiValue}
           />
 
-          <VerticalGroup spacing="none">
+          {/* <VerticalGroup spacing="none">
             <h5>Value group tags</h5>
             <em className="muted p-b-1">Experimental feature, will be deprecated in Grafana v8.</em>
 
@@ -276,7 +276,7 @@ export class QueryVariableEditorUnConnected extends PureComponent<Props, State> 
                 />
               </VerticalGroup>
             ) : null}
-          </VerticalGroup>
+          </VerticalGroup> */}
         </VerticalGroup>
       </VerticalGroup>
     );

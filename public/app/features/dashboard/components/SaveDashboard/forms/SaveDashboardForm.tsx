@@ -55,15 +55,15 @@ export const SaveDashboardForm: React.FC<SaveDashboardFormProps> = ({ dashboard,
             )}
             {(hasVariableChanged || hasTimeChanged) && <div className="gf-form-group" />}
 
-            <TextArea name="message" ref={register} placeholder="Add a note to describe your changes..." autoFocus />
+            <TextArea name="message" ref={register} placeholder="添加一个信息来描述您的更改" autoFocus />
           </div>
 
           <HorizontalGroup>
             <Button type="submit" aria-label={selectors.pages.SaveDashboardModal.save}>
-              Save
+              确定
             </Button>
             <Button variant="secondary" onClick={onCancel}>
-              Cancel
+              取消
             </Button>
           </HorizontalGroup>
         </>

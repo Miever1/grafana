@@ -1,6 +1,6 @@
 {
   "type": "panel",
-  "name": "Time series",
+  "name": "折线图",
   "id": "timeseries",
   "state": "beta",
 

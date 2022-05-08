@@ -33,11 +33,12 @@ export const FieldColorEditor: React.FC<FieldConfigEditorProps<FieldColor | unde
     : fieldColorModeRegistry.list().filter((m) => !m.isByValue);
 
   const options = availableOptions.map((mode) => {
-    let suffix = mode.isByValue ? ' (by value)' : '';
+    // let suffix = mode.isByValue ? ' (by value)' : '';
 
     return {
       value: mode.id,
-      label: `${mode.name}${suffix}`,
+      label: mode.name,
+      //label: `${mode.name}${suffix}`,
       description: mode.description,
       isContinuous: mode.isContinuous,
       isByValue: mode.isByValue,

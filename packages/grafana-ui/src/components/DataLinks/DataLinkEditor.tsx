@@ -44,15 +44,15 @@ export const DataLinkEditor: React.FC<DataLinkEditorProps> = React.memo(
 
     return (
       <div className={styles.listItem}>
-        <Field label="Title">
+        <Field label="链接显示名称">
           <Input value={value.title} onChange={onTitleChange} placeholder="Show details" />
         </Field>
 
-        <Field label="URL">
+        <Field label="Url链接">
           <DataLinkInput value={value.url} onChange={onUrlChange} suggestions={suggestions} />
         </Field>
 
-        <Field label="Open in new tab">
+        <Field label="在新的web页打开链接">
           <Switch value={value.targetBlank || false} onChange={onOpenInNewTabChanged} />
         </Field>
 

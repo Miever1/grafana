@@ -309,7 +309,7 @@ export class PanelEditorUnconnected extends PureComponent<Props> {
         key="settings"
       />,
       <ToolbarButton onClick={this.onDiscard} title="Undo all changes" key="discard">
-        Discard
+        丢弃
       </ToolbarButton>,
       this.props.panel.libraryPanel ? (
         <ToolbarButton
@@ -322,7 +322,7 @@ export class PanelEditorUnconnected extends PureComponent<Props> {
         </ToolbarButton>
       ) : (
         <ToolbarButton onClick={this.onSaveDashboard} title="Apply changes and save dashboard" key="save">
-          Save
+          保存
         </ToolbarButton>
       ),
       <ToolbarButton
@@ -331,7 +331,7 @@ export class PanelEditorUnconnected extends PureComponent<Props> {
         title="Apply changes and go back to dashboard"
         key="apply"
       >
-        Apply
+        应用
       </ToolbarButton>,
     ];
 

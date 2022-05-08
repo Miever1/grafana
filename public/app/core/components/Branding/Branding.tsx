@@ -38,16 +38,16 @@ export class Branding {
   static LoginBackground = LoginBackground;
   static MenuLogo = MenuLogo;
   static LoginBoxBackground = LoginBoxBackground;
-  static AppTitle = 'Grafana';
-  static LoginTitle = 'Welcome to Grafana';
+  static AppTitle = '监控大盘';
+  static LoginTitle = '欢迎进入监控大盘';
   static GetLoginSubTitle = () => {
-    const slogans = [
-      "Don't get in the way of the data",
-      'Your single pane of glass',
-      'Built better together',
-      'Democratising data',
-    ];
-    const count = slogans.length;
-    return slogans[Math.floor(Math.random() * count)];
+    // const slogans = [
+    //   "Don't get in the way of the data",
+    //   'Your single pane of glass',
+    //   'Built better together',
+    //   'Democratising data',
+    // ];
+    // const count = slogans.length;
+    return '';
   };
 }

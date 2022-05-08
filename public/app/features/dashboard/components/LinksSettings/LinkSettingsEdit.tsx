@@ -19,8 +19,8 @@ const newLink = {
 } as DashboardLink;
 
 const linkTypeOptions = [
-  { value: 'dashboards', label: 'Dashboards' },
-  { value: 'link', label: 'Link' },
+  { value: 'dashboards', label: '大盘列表' },
+  { value: 'link', label: '链接' },
 ];
 
 export const linkIconMap: { [key: string]: string } = {
@@ -83,49 +83,44 @@ export const LinkSettingsEdit: React.FC<LinkSettingsEditProps> = ({ mode, editLi
         max-width: 600px;
       `}
     >
-      <Field label="Type">
+      <Field label="链接类型">
         <Select value={linkSettings.type} options={linkTypeOptions} onChange={onTypeChange} />
       </Field>
-      <Field label="Title">
+      <Field label="链接显示名称">
         <Input name="title" aria-label="title" value={linkSettings.title} onChange={onChange} />
       </Field>
       {linkSettings.type === 'dashboards' && (
         <>
-          <Field label="With tags">
+          <Field label="添加标记">
             <TagsInput tags={linkSettings.tags} placeholder="add tags" onChange={onTagsChange} />
           </Field>
         </>
       )}
       {linkSettings.type === 'link' && (
         <>
-          <Field label="Url">
+          <Field label="Url链接">
             <Input name="url" value={linkSettings.url} onChange={onChange} />
           </Field>
-          <Field label="Tooltip">
+          <Field label="链接提示">
             <Input name="tooltip" value={linkSettings.tooltip} onChange={onChange} placeholder="Open dashboard" />
           </Field>
-          <Field label="Icon">
+          <Field label="选择图标">
             <Select value={linkSettings.icon} options={linkIconOptions} onChange={onIconChange} />
           </Field>
         </>
       )}
-      <CollapsableSection label="Options" isOpen={true}>
+      <CollapsableSection label="展示选项" isOpen={true}>
         {linkSettings.type === 'dashboards' && (
           <Field>
-            <Checkbox label="Show as dropdown" name="asDropdown" value={linkSettings.asDropdown} onChange={onChange} />
+            <Checkbox label="显示为下拉菜单" name="asDropdown" value={linkSettings.asDropdown} onChange={onChange} />
           </Field>
         )}
         <Field>
-          <Checkbox
-            label="Include current time range"
-            name="keepTime"
-            value={linkSettings.keepTime}
-            onChange={onChange}
-          />
+          <Checkbox label="包括当前时间范围" name="keepTime" value={linkSettings.keepTime} onChange={onChange} />
         </Field>
         <Field>
           <Checkbox
-            label="Include current template variable values"
+            label="包括当前模板变量值"
             name="includeVars"
             value={linkSettings.includeVars}
             onChange={onChange}
@@ -133,7 +128,7 @@ export const LinkSettingsEdit: React.FC<LinkSettingsEditProps> = ({ mode, editLi
         </Field>
         <Field>
           <Checkbox
-            label="Open link in new tab"
+            label="在新的web页打开链接"
             name="targetBlank"
             value={linkSettings.targetBlank}
             onChange={onChange}
@@ -142,8 +137,8 @@ export const LinkSettingsEdit: React.FC<LinkSettingsEditProps> = ({ mode, editLi
       </CollapsableSection>
 
       <div className="gf-form-button-row">
-        {mode === 'new' && <Button onClick={addLink}>Add</Button>}
-        {mode === 'edit' && <Button onClick={updateLink}>Update</Button>}
+        {mode === 'new' && <Button onClick={addLink}>新建</Button>}
+        {mode === 'edit' && <Button onClick={updateLink}>更新</Button>}
       </div>
     </div>
   );

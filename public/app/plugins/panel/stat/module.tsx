@@ -11,8 +11,8 @@ export const plugin = new PanelPlugin<StatPanelOptions>(StatPanel)
 
     builder.addSelect({
       path: 'textMode',
-      name: 'Text mode',
-      description: 'Control if name and value is displayed or just name',
+      name: '文本模式',
+      description: '控制是否显示名称和值或仅显示名称',
       settings: {
         options: [
           { value: BigValueTextMode.Auto, label: 'Auto' },
@@ -28,37 +28,37 @@ export const plugin = new PanelPlugin<StatPanelOptions>(StatPanel)
     builder
       .addRadio({
         path: 'colorMode',
-        name: 'Color mode',
+        name: '颜色模式',
         description: 'Color either the value or the background',
         defaultValue: 'value',
         settings: {
           options: [
-            { value: 'value', label: 'Value' },
-            { value: 'background', label: 'Background' },
+            { value: 'value', label: '值' },
+            { value: 'background', label: '背景填充' },
           ],
         },
       })
       .addRadio({
         path: 'graphMode',
-        name: 'Graph mode',
+        name: '图表模式',
         description: 'Stat panel graph / sparkline mode',
         defaultValue: 'area',
         settings: {
           options: [
-            { value: 'none', label: 'None' },
-            { value: 'area', label: 'Area' },
+            { value: 'none', label: '统计面板图' },
+            { value: 'area', label: '迷你图' },
           ],
         },
       })
       .addRadio({
         path: 'justifyMode',
-        name: 'Alignment mode',
+        name: '文本对齐',
         description: 'Value & title posititioning',
         defaultValue: 'auto',
         settings: {
           options: [
-            { value: 'auto', label: 'Auto' },
-            { value: 'center', label: 'Center' },
+            { value: 'auto', label: '自动' },
+            { value: 'center', label: '居中' },
           ],
         },
       });

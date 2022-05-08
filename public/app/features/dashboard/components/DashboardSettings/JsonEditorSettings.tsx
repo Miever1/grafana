@@ -46,7 +46,7 @@ export const JsonEditorSettings: React.FC<Props> = ({ dashboard }) => {
       </div>
       {dashboard.meta.canSave && (
         <Button className="m-t-3" onClick={onClick}>
-          Save Changes
+          复制
         </Button>
       )}
     </>

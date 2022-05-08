@@ -9,11 +9,11 @@ import { updateLocation } from 'app/core/actions';
 import { DashboardModel } from '../../state/DashboardModel';
 import { SaveDashboardButton, SaveDashboardAsButton } from '../SaveDashboard/SaveDashboardButton';
 import { VariableEditorContainer } from '../../../variables/editor/VariableEditorContainer';
-import { DashboardPermissions } from '../DashboardPermissions/DashboardPermissions';
+// import { DashboardPermissions } from '../DashboardPermissions/DashboardPermissions';
 import { GeneralSettings } from './GeneralSettings';
-import { AnnotationsSettings } from './AnnotationsSettings';
+// import { AnnotationsSettings } from './AnnotationsSettings';
 import { LinksSettings } from './LinksSettings';
-import { VersionsSettings } from './VersionsSettings';
+// import { VersionsSettings } from './VersionsSettings';
 import { JsonEditorSettings } from './JsonEditorSettings';
 import { GrafanaTheme } from '@grafana/data';
 export interface Props {
@@ -51,22 +51,22 @@ export class DashboardSettings extends PureComponent<Props> {
     if (dashboard.meta.canEdit) {
       pages.push(this.getGeneralPage());
 
-      pages.push({
-        title: 'Annotations',
-        id: 'annotations',
-        icon: 'comment-alt',
-        render: () => <AnnotationsSettings dashboard={dashboard} />,
-      });
+      // pages.push({
+      //   title: 'Annotations',
+      //   id: 'annotations',
+      //   icon: 'comment-alt',
+      //   render: () => <AnnotationsSettings dashboard={dashboard} />,
+      // });
 
       pages.push({
-        title: 'Variables',
+        title: '模板变量',
         id: 'templating',
         icon: 'calculator-alt',
         render: () => <VariableEditorContainer />,
       });
 
       pages.push({
-        title: 'Links',
+        title: '链接',
         id: 'links',
         icon: 'link',
         render: () => <LinksSettings dashboard={dashboard} />,
@@ -82,23 +82,23 @@ export class DashboardSettings extends PureComponent<Props> {
       });
     }
 
-    if (dashboard.id && dashboard.meta.canSave) {
-      pages.push({
-        title: 'Versions',
-        id: 'versions',
-        icon: 'history',
-        render: () => <VersionsSettings dashboard={dashboard} />,
-      });
-    }
+    // if (dashboard.id && dashboard.meta.canSave) {
+    //   pages.push({
+    //     title: 'Versions',
+    //     id: 'versions',
+    //     icon: 'history',
+    //     render: () => <VersionsSettings dashboard={dashboard} />,
+    //   });
+    // }
 
-    if (dashboard.id && dashboard.meta.canAdmin) {
-      pages.push({
-        title: 'Permissions',
-        id: 'permissions',
-        icon: 'lock',
-        render: () => <DashboardPermissions dashboard={dashboard} />,
-      });
-    }
+    // if (dashboard.id && dashboard.meta.canAdmin) {
+    //   pages.push({
+    //     title: 'Permissions',
+    //     id: 'permissions',
+    //     icon: 'lock',
+    //     render: () => <DashboardPermissions dashboard={dashboard} />,
+    //   });
+    // }
 
     pages.push({
       title: 'JSON Model',
@@ -135,7 +135,7 @@ export class DashboardSettings extends PureComponent<Props> {
 
   getGeneralPage(): SettingsPage {
     return {
-      title: 'General',
+      title: '基础设置',
       id: 'settings',
       icon: 'sliders-v-alt',
       render: () => <GeneralSettings dashboard={this.props.dashboard} />,

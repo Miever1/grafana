@@ -24,7 +24,7 @@ export function QueryVariableSortSelect({ onChange, sort }: PropsWithChildren<Pr
 
   return (
     <VariableSelectField
-      name="Sort"
+      name="种类"
       value={value}
       options={SORT_OPTIONS}
       onChange={onChange}

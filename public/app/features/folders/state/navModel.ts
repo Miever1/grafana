@@ -5,7 +5,7 @@ export function buildNavModel(folder: FolderDTO): NavModelItem {
   const model = {
     icon: 'folder',
     id: 'manage-folder',
-    subTitle: 'Manage folder dashboards & permissions',
+    subTitle: '管理文件夹大盘列表和权限',
     url: '',
     text: folder.title,
     breadcrumbs: [{ title: 'Dashboards', url: 'dashboards' }],
@@ -21,13 +21,13 @@ export function buildNavModel(folder: FolderDTO): NavModelItem {
   };
 
   if (folder.canAdmin) {
-    model.children.push({
-      active: false,
-      icon: 'lock',
-      id: `folder-permissions-${folder.uid}`,
-      text: 'Permissions',
-      url: `${folder.url}/permissions`,
-    });
+    // model.children.push({
+    //   active: false,
+    //   icon: 'lock',
+    //   id: `folder-permissions-${folder.uid}`,
+    //   text: 'Permissions',
+    //   url: `${folder.url}/permissions`,
+    // });
   }
 
   if (folder.canSave) {

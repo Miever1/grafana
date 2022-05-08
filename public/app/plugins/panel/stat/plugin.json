@@ -1,6 +1,6 @@
 {
   "type": "panel",
-  "name": "Stat",
+  "name": "数字图",
   "id": "stat",
 
   "info": {

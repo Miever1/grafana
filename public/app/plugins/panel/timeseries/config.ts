@@ -1,14 +1,14 @@
 import {
-  FieldColorModeId,
+  // FieldColorModeId,
   FieldConfigEditorBuilder,
-  FieldConfigProperty,
+  // FieldConfigProperty,
   FieldType,
   identityOverrideProcessor,
   PanelOptionsEditorBuilder,
   SetFieldConfigOptionsArgs,
   standardEditorsRegistry,
   StatsPickerConfigSettings,
-  stringOverrideProcessor,
+  // stringOverrideProcessor,
 } from '@grafana/data';
 import {
   AxisPlacement,
@@ -17,8 +17,8 @@ import {
   GraphFieldConfig,
   graphFieldOptions,
   LineInterpolation,
-  LineStyle,
-  PointVisibility,
+  // LineStyle,
+  // PointVisibility,
   ScaleDistribution,
   ScaleDistributionConfig,
   GraphGradientMode,
@@ -27,8 +27,8 @@ import {
 } from '@grafana/ui';
 import { SeriesConfigEditor } from './HideSeriesConfigEditor';
 import { ScaleDistributionEditor } from './ScaleDistributionEditor';
-import { LineStyleEditor } from './LineStyleEditor';
-import { FillBellowToEditor } from './FillBelowToEditor';
+//import { LineStyleEditor } from './LineStyleEditor';
+//import { FillBellowToEditor } from './FillBelowToEditor';
 import { OptionsWithLegend } from './types';
 
 export const defaultGraphConfig: GraphFieldConfig = {
@@ -41,6 +41,8 @@ export const defaultGraphConfig: GraphFieldConfig = {
 };
 
 export function getGraphFieldConfig(cfg: GraphFieldConfig): SetFieldConfigOptionsArgs<GraphFieldConfig> {
+  return {};
+  /*
   return {
     standardOptions: {
       [FieldConfigProperty.Color]: {
@@ -170,6 +172,7 @@ export function getGraphFieldConfig(cfg: GraphFieldConfig): SetFieldConfigOption
       addHideFrom(builder);
     },
   };
+  */
 }
 
 export function addHideFrom(builder: FieldConfigEditorBuilder<AxisConfig>) {
@@ -265,26 +268,26 @@ export function addLegendOptions<T extends OptionsWithLegend>(builder: PanelOpti
   builder
     .addRadio({
       path: 'legend.displayMode',
-      name: 'Legend mode',
+      name: '展示模式',
       description: '',
       defaultValue: LegendDisplayMode.List,
       settings: {
         options: [
-          { value: LegendDisplayMode.List, label: 'List' },
-          { value: LegendDisplayMode.Table, label: 'Table' },
-          { value: LegendDisplayMode.Hidden, label: 'Hidden' },
+          { value: LegendDisplayMode.List, label: '列表模式' },
+          { value: LegendDisplayMode.Table, label: '表格模式' },
+          { value: LegendDisplayMode.Hidden, label: '隐藏模式' },
         ],
       },
     })
     .addRadio({
       path: 'legend.placement',
-      name: 'Legend placement',
+      name: '图列放置位置',
       description: '',
       defaultValue: 'bottom',
       settings: {
         options: [
-          { value: 'bottom', label: 'Bottom' },
-          { value: 'right', label: 'Right' },
+          { value: 'bottom', label: '底部' },
+          { value: 'right', label: '右侧' },
         ],
       },
       showIf: (c) => c.legend.displayMode !== LegendDisplayMode.Hidden,
@@ -292,7 +295,7 @@ export function addLegendOptions<T extends OptionsWithLegend>(builder: PanelOpti
     .addCustomEditor<StatsPickerConfigSettings, string[]>({
       id: 'legend.calcs',
       path: 'legend.calcs',
-      name: 'Legend calculations',
+      name: '图例显示值',
       description: 'Choose a reducer functions / calculations to include in legend',
       editor: standardEditorsRegistry.get('stats-picker').editor as any,
       defaultValue: [],

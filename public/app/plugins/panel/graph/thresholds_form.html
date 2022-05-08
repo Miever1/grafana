@@ -6,7 +6,7 @@
   <div ng-class="{'thresholds-form-disabled': ctrl.disabled}">
     <div class="gf-form-inline" ng-repeat="threshold in ctrl.panel.thresholds">
       <div class="gf-form">
-        <label class="gf-form-label">T{{$index+1}}</label>
+        <label class="gf-form-label">基线#{{$index+1}}</label>
       </div>
 
       <div class="gf-form">
@@ -30,7 +30,7 @@
       </div>
 
       <div class="gf-form">
-        <label class="gf-form-label">Color</label>
+        <label class="gf-form-label">颜色配置</label>
         <div class="gf-form-select-wrapper">
           <select
             class="gf-form-input"
@@ -45,14 +45,14 @@
 
       <gf-form-switch
         class="gf-form"
-        label="Fill"
+        label="色块"
         checked="threshold.fill"
         on-change="ctrl.render()"
         ng-disabled="ctrl.disabled"
       ></gf-form-switch>
 
       <div class="gf-form" ng-if="threshold.fill && threshold.colorMode === 'custom'">
-        <label class="gf-form-label">Fill color</label>
+        <label class="gf-form-label">色块颜色</label>
         <span class="gf-form-label">
           <color-picker color="threshold.fillColor" onChange="ctrl.onFillColorChange($index)"></color-picker>
         </span>
@@ -60,21 +60,21 @@
 
       <gf-form-switch
         class="gf-form"
-        label="Line"
+        label="线"
         checked="threshold.line"
         on-change="ctrl.render()"
         ng-disabled="ctrl.disabled"
       ></gf-form-switch>
 
       <div class="gf-form" ng-if="threshold.line && threshold.colorMode === 'custom'">
-        <label class="gf-form-label">Line color</label>
+        <label class="gf-form-label">线条颜色</label>
         <span class="gf-form-label">
           <color-picker color="threshold.lineColor" onChange="ctrl.onLineColorChange($index)"></color-picker>
         </span>
       </div>
 
       <div class="gf-form">
-        <label class="gf-form-label">Y-Axis</label>
+        <label class="gf-form-label">坐标轴</label>
         <div class="gf-form-select-wrapper">
           <select
             class="gf-form-input"
@@ -99,7 +99,7 @@
 
     <div class="gf-form-button-row">
       <button class="btn btn-inverse" ng-click="ctrl.addThreshold()" ng-disabled="ctrl.disabled">
-        <icon name="'plus'"></icon>&nbsp;Add threshold
+        <icon name="'plus'"></icon>&nbsp;添加基线
       </button>
     </div>
   </div>

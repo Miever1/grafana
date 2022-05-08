@@ -86,7 +86,7 @@ export function getPanelMenu(
 
   if (!panel.isEditing) {
     menu.push({
-      text: 'View',
+      text: '查看',
       iconClassName: 'eye',
       onClick: onViewPanel,
       shortcut: 'v',
@@ -95,7 +95,7 @@ export function getPanelMenu(
 
   if (dashboard.canEditPanel(panel) && !panel.isEditing) {
     menu.push({
-      text: 'Edit',
+      text: '编辑',
       iconClassName: 'edit',
       onClick: onEditPanel,
       shortcut: 'e',
@@ -103,7 +103,7 @@ export function getPanelMenu(
   }
 
   menu.push({
-    text: 'Share',
+    text: '分享',
     iconClassName: 'share-alt',
     onClick: onSharePanel,
     shortcut: 'p s',
@@ -142,7 +142,7 @@ export function getPanelMenu(
 
   menu.push({
     type: 'submenu',
-    text: 'Inspect',
+    text: '检查',
     iconClassName: 'info-circle',
     onClick: (e: React.MouseEvent<any>) => onInspectPanel(),
     shortcut: 'i',
@@ -153,13 +153,13 @@ export function getPanelMenu(
 
   if (dashboard.canEditPanel(panel) && !(panel.isViewing || panel.isEditing)) {
     subMenu.push({
-      text: 'Duplicate',
+      text: '复制',
       onClick: onDuplicatePanel,
       shortcut: 'p d',
     });
 
     subMenu.push({
-      text: 'Copy',
+      text: '克隆',
       onClick: onCopyPanel,
     });
   }
@@ -190,7 +190,7 @@ export function getPanelMenu(
   if (!panel.isEditing && subMenu.length) {
     menu.push({
       type: 'submenu',
-      text: 'More...',
+      text: '更多',
       iconClassName: 'cube',
       subMenu,
       onClick: onMore,
@@ -201,7 +201,7 @@ export function getPanelMenu(
     menu.push({ type: 'divider', text: '' });
 
     menu.push({
-      text: 'Remove',
+      text: '删除',
       iconClassName: 'trash-alt',
       onClick: onRemovePanel,
       shortcut: 'p r',
