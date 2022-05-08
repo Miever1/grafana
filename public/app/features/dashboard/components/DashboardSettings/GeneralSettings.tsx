@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { SelectableValue } from '@grafana/data';
-import { Select, TagsInput, Input, Field, CollapsableSection, RadioButtonGroup } from '@grafana/ui';
+// import { SelectableValue } from '@grafana/data';
+import { TagsInput, Input, Field, RadioButtonGroup } from '@grafana/ui';
+// import { Select, TagsInput, Input, Field, CollapsableSection, RadioButtonGroup } from '@grafana/ui';
 import { selectors } from '@grafana/e2e-selectors';
 import { FolderPicker } from 'app/core/components/Select/FolderPicker';
 import { DashboardModel } from '../../state/DashboardModel';
@@ -11,11 +12,11 @@ interface Props {
   dashboard: DashboardModel;
 }
 
-const GRAPH_TOOLTIP_OPTIONS = [
-  { value: 0, label: 'Default' },
-  { value: 1, label: 'Shared crosshair' },
-  { value: 2, label: 'Shared Tooltip' },
-];
+// const GRAPH_TOOLTIP_OPTIONS = [
+//   { value: 0, label: 'Default' },
+//   { value: 1, label: 'Shared crosshair' },
+//   { value: 2, label: 'Shared Tooltip' },
+// ];
 
 export const GeneralSettings: React.FC<Props> = ({ dashboard }) => {
   const [renderCounter, setRenderCounter] = useState(0);
@@ -30,10 +31,10 @@ export const GeneralSettings: React.FC<Props> = ({ dashboard }) => {
     dashboard[event.currentTarget.name as 'title' | 'description'] = event.currentTarget.value;
   };
 
-  const onTooltipChange = (graphTooltip: SelectableValue<number>) => {
-    dashboard.graphTooltip = graphTooltip.value;
-    setRenderCounter(renderCounter + 1);
-  };
+  // const onTooltipChange = (graphTooltip: SelectableValue<number>) => {
+  //   dashboard.graphTooltip = graphTooltip.value;
+  //   setRenderCounter(renderCounter + 1);
+  // };
 
   // const onRefreshIntervalChange = (intervals: string[]) => {
   //   dashboard.timepicker.refresh_intervals = intervals.filter((i) => i.trim() !== '');
@@ -109,7 +110,7 @@ export const GeneralSettings: React.FC<Props> = ({ dashboard }) => {
         timezone={dashboard.timezone}
       /> */}
 
-      <CollapsableSection label="Panel options" isOpen={true}>
+      {/* <CollapsableSection label="Panel options" isOpen={true}>
         <Field
           label="Graph tooltip"
           description="Controls tooltip and hover highlight behavior across different panels"
@@ -121,7 +122,7 @@ export const GeneralSettings: React.FC<Props> = ({ dashboard }) => {
             value={dashboard.graphTooltip}
           />
         </Field>
-      </CollapsableSection>
+      </CollapsableSection> */}
 
       <div className="gf-form-button-row">
         {dashboard.meta.canSave && <DeleteDashboardButton dashboard={dashboard} />}

@@ -20,7 +20,7 @@ import { getTimeSrv } from '../../dashboard/services/TimeSrv';
 import { isLegacyQueryEditor, isQueryEditor } from '../guard';
 import { VariableSectionHeader } from '../editor/VariableSectionHeader';
 import { VariableTextField } from '../editor/VariableTextField';
-import { VariableSwitchField } from '../editor/VariableSwitchField';
+// import { VariableSwitchField } from '../editor/VariableSwitchField';
 import { QueryVariableRefreshSelect } from './QueryVariableRefreshSelect';
 import { QueryVariableSortSelect } from './QueryVariableSortSelect';
 import { DataSourcePicker } from 'app/core/components/Select/DataSourcePicker';
@@ -238,7 +238,7 @@ export class QueryVariableEditorUnConnected extends PureComponent<Props, State> 
             onMultiChanged={this.props.changeVariableMultiValue}
           />
 
-          <VerticalGroup spacing="none">
+          {/* <VerticalGroup spacing="none">
             <h5>Value group tags</h5>
             <em className="muted p-b-1">Experimental feature, will be deprecated in Grafana v8.</em>
 
@@ -276,7 +276,7 @@ export class QueryVariableEditorUnConnected extends PureComponent<Props, State> 
                 />
               </VerticalGroup>
             ) : null}
-          </VerticalGroup>
+          </VerticalGroup> */}
         </VerticalGroup>
       </VerticalGroup>
     );

@@ -153,7 +153,7 @@ export const getStandardFieldConfigs = () => {
       ],
     },
     shouldApply: () => true,
-    category: ['Thresholds'],
+    category: ['辅助基线'],
     getItemsCount: (value) => (value ? value.steps.length : 0),
   };
 

@@ -26,26 +26,26 @@ export const plugin = new PanelPlugin<PieChartOptions>(PieChartPanel)
 
     builder
       .addRadio({
-        name: 'Piechart type',
-        description: 'How the piechart should be rendered',
+        name: '饼图类型',
+        description: '应该如何呈现饼图',
         path: 'pieType',
         settings: {
           options: [
-            { value: PieChartType.Pie, label: 'Pie' },
-            { value: PieChartType.Donut, label: 'Donut' },
+            { value: PieChartType.Pie, label: '饼状' },
+            { value: PieChartType.Donut, label: '环状' },
           ],
         },
         defaultValue: PieChartType.Pie,
       })
       .addMultiSelect({
-        name: 'Labels',
+        name: '标签',
         path: 'displayLabels',
-        description: 'Select the labels to be displayed in the pie chart',
+        description: '选择要在饼图中显示的标签',
         settings: {
           options: [
-            { value: PieChartLabels.Percent, label: 'Percent' },
-            { value: PieChartLabels.Name, label: 'Name' },
-            { value: PieChartLabels.Value, label: 'Value' },
+            { value: PieChartLabels.Percent, label: '百分比' },
+            { value: PieChartLabels.Name, label: '图例名' },
+            { value: PieChartLabels.Value, label: '数值' },
           ],
         },
       })
@@ -80,8 +80,8 @@ export const plugin = new PanelPlugin<PieChartOptions>(PieChartPanel)
         path: 'legend.values',
         settings: {
           options: [
-            { value: PieChartLegendValues.Percent, label: 'Percent' },
-            { value: PieChartLegendValues.Value, label: 'Value' },
+            { value: PieChartLegendValues.Percent, label: '百分比' },
+            { value: PieChartLegendValues.Value, label: '值' },
           ],
         },
         showIf: (c) => c.legend.displayMode !== LegendDisplayMode.Hidden,

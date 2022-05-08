@@ -162,7 +162,7 @@ export class GraphCtrl extends MetricsPanelCtrl {
     this.events.on(PanelEvents.dataFramesReceived, this.onDataFramesReceived.bind(this));
     this.events.on(PanelEvents.dataSnapshotLoad, this.onDataSnapshotLoad.bind(this));
     this.events.on(PanelEvents.editModeInitialized, this.onInitEditMode.bind(this));
-    this.events.on(PanelEvents.initPanelActions, this.onInitPanelActions.bind(this));
+    // this.events.on(PanelEvents.initPanelActions, this.onInitPanelActions.bind(this));
 
     // set axes format from field config
     const fieldConfigUnit = this.panel.fieldConfig.defaults.unit;
